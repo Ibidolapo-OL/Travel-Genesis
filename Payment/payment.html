@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
+
+</head>
+
+<body>
+    <div class="payment-container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-button"></button>
+            <h1>Payment</h1>
+        </div>
+
+        <p class="subtitle">Choose how you want to pay</p>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <!-- Credit Card Option -->
+            <div class="payment-option selected">
+                <div class="payment-icon">💳</div>
+                <div class="payment-info">
+                    <div class="payment-title">Credit Card</div>
+                    <div class="payment-subtitle">Pay with a credit card</div>
+                </div>
+                <div class="dropdown-icon">▼</div>
+            </div>
+
+            <!-- Bank Transfer Option -->
+            <div class="payment-option">
+                <div class="payment-icon">⇄</div>
+                <div class="payment-info">
+                    <div class="payment-title">Bank Transfer</div>
+                    <div class="payment-subtitle">Pay with your favorite banks</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PayPal Button -->
+        <button class="paypal-button">
+            <span class="paypal-logo">PayPal</span>
+        </button>
+
+        <!-- Card Details Form -->
+        <form>
+            <!-- Card Number -->
+            <div class="form-group">
+                <label class="form-label">Card number</label>
+                <div class="card-number-wrapper">
+                    <input type="text" class="form-input" value="4255 XXXX XXXX 9321" maxlength="16">
+                    <div class="card-logo">
+                        <div class="mastercard-circle mastercard-red"></div>
+                        <div class="mastercard-circle mastercard-yellow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expiration Date and CVV -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Expiration date</label>
+                    <div class="expiry-inputs">
+                        <input type="text" class="form-input" value="09" maxlength="2">
+                        <input type="text" class="form-input" value="20" maxlength="2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">CVV/CVC</label>
+                    <input type="text" class="form-input" value="922" maxlength="3">
+                </div>
+            </div>
+
+            <!-- Card Holder Name -->
+            <div class="form-group">
+                <label class="form-label">Card holder name</label>
+                <input type="text" class="form-input" value="Naomi Davies">
+            </div>
+
+            <!-- Pay Button -->
+            <button type="submit" class="pay-button">Pay Now</button>
+        </form>
+
+        <!-- Bottom Indicator -->
+        <div class="bottom-indicator"></div>
+    </div>
+
+    <script>
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function () {
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // Back button
+        document.querySelector('.back-btn').addEventListener('click', function () {
+            alert('Go back to previous page');
+        });
+
+        // PayPal button
+        document.querySelector('.paypal-btn').addEventListener('click', function () {
+            alert('Redirecting to PayPal...');
+        });
+
+        // Pay Now button
+        document.querySelector('.pay-btn').addEventListener('click', function () {
+            alert('Processing payment...');
+        });
+    </script>
+</body>
+
+</html>
