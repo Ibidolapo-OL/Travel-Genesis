@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Cancellation Successful</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            margin-top: 90px;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+        }
+
+        .icon-outer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 128, 128, 0.2);
+            border-radius: 50%;
+        }
+
+        .icon-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: #008080;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .checkmark {
+            width: 24px;
+            height: 24px;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+
+        h1 {
+            color: #008080;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background: #008080;
+            color: white;
+            border: none;
+            padding: 15px 60px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .button:hover {
+            background: #006666;
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal">
+        <div class="icon-container">
+            <div class="icon-outer"></div>
+            <div class="icon-inner">
+                <div class="checkmark"></div>
+            </div>
+        </div>
+
+        <h1>Booking Cancellation<br>Successful!</h1>
+
+        <p>Your ticket has been canceled on requested. A confirmation email with refund details will be sent to your
+            registered email address. Thank you for choosing our service</p>
+
+        <button class="button">Ok</button>
+    </div>
+</body>
+
+</html>
