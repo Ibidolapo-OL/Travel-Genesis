@@ -121,6 +121,10 @@ p {
     transform: translateY(-2px);
 }
 
+.crypto {
+    color: #15c9d4;
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 40px 10px;
