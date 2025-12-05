@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel App Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Poppins, sans-serif;
+      }
+
+      body {
+        background: #f3f7f8;
+        padding-bottom: 80px;
+      }
+
+      /* HEADER */
+      .top-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #fff;
+      }
+
+      .top-nav .left {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+
+      .icon {
+        width: 22px;
+        margin-left: 18px;
+      }
+
+      /* SECTION TITLE */
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      }
+
+      .section-header a {
+        color: #3bbcd8;
+        font-weight: 500;
+      }
+
+      /* CARDS GRID */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 0 20px 20px;
+        
+      }
+
+      .card {
+        background: #fff;
+        
+        padding-bottom: 15px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        background: none;
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        position: relative;
+        border-radius: 15px;
+      }
+
+      .card h4 {
+        margin: 8px 0;
+        position: absolute;top: 100px;left: 20px;
+        color: white;
+        -webkit-text-stroke: #3bbcd8 1px; 
+        display: inline;
+       font-size: x-large;
+      }
+
+      .rating {
+        font-size: 14px;
+        margin-top: 5px;
+        position: absolute;top: 144px; left: 20px;
+      }
+
+      /* BUTTON */
+      button {
+        background: #9bd9e3;
+        padding: 8px 20px;
+        border-radius: 10px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        color: rgba(0, 122, 140, 1);
+
+      }
+
+      /* BOTTOM NAV */
+      .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        background: #fff;
+        border-top: 1px solid #ddd;
+      }
+
+      .nav-item {
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .nav-item.active span {
+        color: #3bbcd8;
+      }
+      .card-hidden{
+        display: none;
+      }
+
+      /* ------------------------- */
+      /*    RESPONSIVE MEDIA       */
+      /* ------------------------- */
+
+      /* Tablets */
+      @media (max-width: 768px) {
+        .cards {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .card img {
+          height: 180px;
+        }
+        .card {
+        background: #fff;
+        
+        padding-bottom: 15px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        background: none;
+      }
+
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        position: relative;
+        border-radius: 15px;
+      }
+      .card h4 {
+        margin: 8px 0;
+        position: absolute;top: 125px;left: 20px;
+        color: white;
+        -webkit-text-stroke: #3bbcd8 1px; 
+        display: inline;
+       font-size: 18px;
+      }
+      }
+
+      /* Small Mobile */
+      @media (max-width: 480px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .top-nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        button {
+          width: 90%;
+        }
+
+        .card img {
+          height: 200px;
+        }
+        .card {
+        background: #fff;
+        object-fit:fill;
+        
+        padding-bottom: 15px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        background: none;
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        position: relative;
+        border-radius: 15px;
+        
+      }
+      .card h4 >.rating{
+        margin: 8px 0;
+        position: absolute;top: 125px;left: 20px;
+        color: white;
+        -webkit-text-stroke: #3bbcd8 1px; 
+        display: inline;
+       font-size: 16px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP NAV -->
+    <header class="top-nav">
+      <div class="left">
+        <img src="./icons/Rectangle 55.png" class="avatar" alt="" />
+        <div>
+          <h2>Hi, Solo</h2>
+          <p><img src="./icons/location.png" alt="" /> Lagos, Nigeria</p>
+        </div>
+      </div>
+
+      <div class="right">
+        <img src="./icons/notification.png" class="icon" alt="" />
+        <img src="icons/mingcute_search-line.png" class="icon" alt="">
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <section class="section-header">
+      <h3>Popular destinations</h3>
+      <a href="#" class="see-all" id="seeAllPopular">See all</a>
+    </section>
+
+    <div class="cards">
+      <!-- CARD 1 -->
+      <div class="card">
+        <img
+          src="./City-images/London.png"
+          alt=""
+        />
+        <h4>LONDON</h4>
+        <button>Book Now</button>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <img
+          src="./City-images/Sydney.png"
+          alt=""
+        />
+        <h4>SYDNEY</h4>
+        <button>Book Now</button>
+      </div>
+
+      
+        <div class="card-hidden">
+        <img
+            src="./City-images/New York City, USA.png"
+            alt=""
+        />
+        <h4>NEW YORK CITY</h4>
+        <button>Book Now</button>
+        </div>
+
+        <div class="card-hidden">
+        <img
+            src="./City-images/Paris.png"
+            alt=""
+        />
+        <h4>PARIS</h4>
+        <button>Book Now</button>
+        </div>
+
+        <div class="card-hidden">
+        <img
+            src="./City-images/Tokyo, Japan.png"
+            alt=""
+        />
+        <h4>TOKYO</h4>
+        <button>Book Now</button>
+        </div>
+
+        <div class="card-hidden">
+        <img
+            src="./City-images/Toronto, Canada.png"
+            alt=""
+        />
+        <h4>TORONTO</h4>
+        <button>Book Now</button>
+        </div>
+    </div>
+
+    <!-- SPECIAL PACKAGES -->
+    <section class="section-header">
+      <h3>Special Packages</h3>
+      <a href="#more" class="see-all" id="seeAllPopular">See all</a>
+    </section>
+
+    <div class="cards">
+      <!-- PACKAGE 1 -->
+      <div class="card">
+        <img
+          src="./City-images/London.png"
+          alt=""
+        />
+        <div class="rating">⭐⭐⭐⭐✩ 4.5</div>
+        <h4>LONDON</h4>
+        <button>Book Now</button>
+      </div>
+
+      <!-- PACKAGE 2 -->
+      <div class="card">
+        <img
+          src="./City-images/Sydney.png"
+          alt=""
+        />
+        <div class="rating">⭐⭐⭐⭐✰ 4.0</div>
+        <h4>SYDNEY</h4>
+        <button>Book Now</button>
+      </div>
+
+      
+        <div class="card-hidden" id="more">
+        <img
+          src="./City-images/New York City, USA.png"
+          alt=""
+        />
+        <div class="rating">⭐⭐⭐⭐✰ 4.0</div>
+        <h4>NEW YORK CITY</h4>
+        <button>Book Now</button>
+      </div>
+
+      <div class="card-hidden">
+        <img
+          src="./City-images/Paris.png"
+          alt=""
+        />
+        <div class="rating">⭐⭐⭐⭐✰ 4.0</div>
+        <h4>PARIS</h4>
+        <button>Book Now</button>
+      </div>
+        
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <footer class="bottom-nav">
+      <div class="nav-item active">
+        <span><img src="./icons/Navigation Icon.png" alt=""></span>
+        <p>Home</p>
+      </div>
+      <div class="nav-item">
+        <span><img src="./icons/Navigation Icon (1).png" alt=""></span>
+        <p>My Trip</p>
+      </div>
+      <div class="nav-item">
+        <span><img src="./icons/Navigation Icon (2).png" alt=""></span>
+        <p>Explore</p>
+      </div>
+      <div class="nav-item">
+        <span><img src="./icons/Navigation Icon (3).png" alt=""></span>
+        <p>Profile</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
