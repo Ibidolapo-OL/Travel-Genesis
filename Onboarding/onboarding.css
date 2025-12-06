@@ -1,0 +1,199 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Segoe UI', sans-serif;
+     background: #f0f0f0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     padding: 1px;
+ }
+
+ .phone-container {
+     width: 100%;
+     max-width: 390px;
+     height: 844px;
+     background: white;
+     border-radius: 40px;
+     overflow: hidden;
+     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+     position: relative;
+ }
+
+ .content {
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     background: #e8e8e8;
+ }
+
+ /* Header Section */
+ .header {
+     padding: 40px 30px 30px;
+     background: #e8e8e8;
+     z-index: 10;
+ }
+
+ .header h1 {
+     font-size: 36px;
+     font-weight: 700;
+     color: #1a1a1a;
+     margin-bottom: 10px;
+     line-height: 1.2;
+ }
+
+ .header p {
+     font-size: 15px;
+     color: #666;
+     line-height: 1.5;
+ }
+
+ /* Image Container */
+ .image-container {
+     flex: 1;
+     position: relative;
+     overflow: hidden;
+     border-radius: 30px 30px 0 0;
+     margin-top: 20px;
+ }
+
+ .main-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center;
+ }
+
+ /* Buttons Container */
+ .buttons-container {
+     padding: 30px;
+     background: transparent;
+     display: flex;
+     gap: 15px;
+     position: absolute;
+     bottom: 50px;
+     left: 0;
+     right: 0;
+ }
+
+ .btn {
+     flex: 1;
+     padding: 18px 30px;
+     border: none;
+     border-radius: 10px;
+     font-size: 16px;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     text-decoration: none;
+     text-align: center;
+ }
+
+ .btn-skip {
+     background: rgba(255, 255, 255, 0.5);
+     backdrop-filter: blur(10px);
+     color: #1a1a1a;
+     border: 1px solid rgba(255, 255, 255, 0.3);
+ }
+
+ .btn-skip:hover {
+     background: rgba(255, 255, 255, 0.7);
+     transform: translateY(-2px);
+ }
+
+ .btn-next {
+     background: #0891b2;
+     color: white;
+     box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+ }
+
+ .btn-next:hover {
+     background: #0e7490;
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+ }
+
+ /* Bottom Indicator */
+ .indicator {
+     position: absolute;
+     bottom: 15px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 134px;
+     height: 5px;
+     background: #1a1a1a;
+     border-radius: 10px;
+ }
+
+ /* Responsive Design */
+ @media (max-width: 430px) {
+     .phone-container {
+         max-width: 100%;
+         height: 100vh;
+         border-radius: 0;
+     }
+
+     .header h1 {
+         font-size: 32px;
+     }
+
+     .buttons-container {
+         bottom: 30px;
+     }
+ }
+
+ @media (max-width: 360px) {
+     .header {
+         padding: 30px 20px 20px;
+     }
+
+     .header h1 {
+         font-size: 28px;
+     }
+
+     .header p {
+         font-size: 14px;
+     }
+
+     .buttons-container {
+         padding: 20px;
+         gap: 10px;
+     }
+
+     .btn {
+         padding: 15px 20px;
+         font-size: 15px;
+     }
+ }
+
+ /* Add subtle animation on load */
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .header,
+ .image-container,
+ .buttons-container {
+     animation: fadeIn 0.8s ease-out;
+ }
+
+ .image-container {
+     animation-delay: 0.2s;
+ }
+
+ .buttons-container {
+     animation-delay: 0.4s;
+ }
