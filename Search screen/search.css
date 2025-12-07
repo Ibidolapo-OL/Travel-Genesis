@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    overflow-y: auto;
 }
 
 .header {
@@ -47,7 +47,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateX(-3px);
 }
 
 .search-container {
@@ -57,17 +61,19 @@ body {
 
 .search-input {
     width: 100%;
-    padding: 12px 45px 12px 45px;
+    padding: 12px 45px;
     border: 1px solid #d0d0d0;
     border-radius: 25px;
     background: white;
     font-size: 14px;
     color: #666;
+    transition: all 0.3s;
 }
 
 .search-input:focus {
     outline: none;
     border-color: #0891b2;
+    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
 }
 
 .search-icon {
@@ -75,8 +81,6 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
-    font-size: 18px;
 }
 
 .results-header {
@@ -92,6 +96,7 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .destination-card:hover {
@@ -104,6 +109,7 @@ body {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
 }
 
 .card-image {
@@ -118,24 +124,23 @@ body {
     left: 0;
     right: 0;
     padding: 20px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }
 
 .destination-name {
-    font-size: 28px;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
 }
 
 .card-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
 .indicator {
     position: absolute;
@@ -148,30 +153,6 @@ body {
     border-radius: 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 430px) {
-    .phone-container {
-        max-width: 100%;
-        height: 100vh;
-        border-radius: 0;
-    }
-}
-
-@media (max-width: 360px) {
-    .content {
-        padding: 15px;
-    }
-
-    .destination-name {
-        font-size: 24px;
-    }
-
-    .card-image-container {
-        height: 180px;
-    }
-}
-
-/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -184,6 +165,412 @@ body {
     }
 }
 
-.destination-card {
-    animation: fadeIn 0.6s ease-out;
+/* ==================== RESPONSIVE BREAKPOINTS ==================== */
+
+/* Small Phones (< 360px) */
+@media (max-width: 360px) {
+    .content {
+        padding: 15px;
+    }
+
+    .header {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .back-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .search-input {
+        padding: 10px 40px;
+        font-size: 13px;
+    }
+
+    .results-header {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .card-image-container {
+        height: 160px;
+    }
+
+    .card-overlay {
+        padding: 15px;
+    }
+}
+
+/* Mobile Portrait (361px - 430px) */
+@media (min-width: 361px) and (max-width: 430px) {
+    .phone-container {
+        max-width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+}
+
+/* Mobile Landscape & Small Tablets (431px - 767px) */
+@media (min-width: 431px) and (max-width: 767px) {
+    .phone-container {
+        max-width: 500px;
+        height: 750px;
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .header {
+        gap: 18px;
+        margin-bottom: 25px;
+    }
+
+    .back-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .search-input {
+        padding: 14px 50px;
+        font-size: 15px;
+    }
+
+    .results-header {
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+
+    .card-image-container {
+        height: 220px;
+    }
+
+    .card-overlay {
+        padding: 22px;
+    }
+}
+
+/* iPad Portrait & Medium Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        padding: 0;
+    }
+
+    .phone-container {
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .content {
+        padding: 40px 60px;
+    }
+
+    .header {
+        gap: 25px;
+        margin-bottom: 35px;
+    }
+
+    .back-btn {
+        width: 55px;
+        height: 55px;
+    }
+
+    .back-btn svg {
+        width: 20px;
+        height: 24px;
+    }
+
+    .search-input {
+        padding: 18px 60px;
+        font-size: 18px;
+        border-radius: 30px;
+    }
+
+    .search-icon {
+        left: 20px;
+    }
+
+    .search-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .results-header {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .destination-card {
+        border-radius: 25px;
+    }
+
+    .card-image-container {
+        height: 300px;
+    }
+
+    .card-overlay {
+        padding: 30px;
+    }
+
+    .destination-name svg {
+        width: 140px;
+        height: 24px;
+    }
+
+    .rating svg {
+        width: 140px;
+        height: 30px;
+    }
+
+    .indicator {
+
+        display: none;
+    }
+}
+
+/* iPad Landscape & Small Desktops (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    body {
+        padding: 0;
+    }
+
+    .phone-container {
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .content {
+        padding: 50px 80px;
+    }
+
+    .header {
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .back-btn svg {
+        width: 22px;
+        height: 26px;
+    }
+
+    .search-input {
+        padding: 20px 65px;
+        font-size: 20px;
+        border-radius: 32px;
+    }
+
+    .search-icon {
+        left: 22px;
+    }
+
+    .search-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .results-header {
+        font-size: 26px;
+        margin-bottom: 28px;
+    }
+
+    .destination-card {
+        border-radius: 28px;
+    }
+
+    .card-image-container {
+        height: 350px;
+    }
+
+    .card-overlay {
+        padding: 35px;
+    }
+
+    .destination-name svg {
+        width: 160px;
+        height: 28px;
+    }
+
+    .rating svg {
+        width: 160px;
+        height: 34px;
+    }
+
+    .indicator {
+
+        display: none;
+    }
+}
+
+/* Large Desktops & MacBooks (1367px - 1920px) */
+@media (min-width: 1367px) and (max-width: 1920px) {
+    body {
+        padding: 0;
+    }
+
+    .phone-container {
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .content {
+        padding: 60px 100px;
+    }
+
+    .header {
+        gap: 35px;
+        margin-bottom: 45px;
+    }
+
+    .back-btn {
+        width: 70px;
+        height: 70px;
+    }
+
+    .back-btn svg {
+        width: 24px;
+        height: 30px;
+    }
+
+    .search-input {
+        padding: 22px 70px;
+        font-size: 22px;
+        border-radius: 35px;
+    }
+
+    .search-icon {
+        left: 25px;
+    }
+
+    .search-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .results-header {
+        font-size: 30px;
+        margin-bottom: 32px;
+    }
+
+    .destination-card {
+        border-radius: 30px;
+    }
+
+    .card-image-container {
+        height: 400px;
+    }
+
+    .card-overlay {
+        padding: 40px;
+    }
+
+    .destination-name svg {
+        width: 180px;
+        height: 32px;
+    }
+
+    .rating svg {
+        width: 180px;
+        height: 38px;
+    }
+
+    .indicator {
+
+        display: none;
+    }
+}
+
+/* Ultra-Wide & 4K Screens (> 1920px) */
+@media (min-width: 1921px) {
+    body {
+        padding: 0;
+    }
+
+    .phone-container {
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .content {
+        padding: 80px 140px;
+    }
+
+    .header {
+        gap: 40px;
+        margin-bottom: 55px;
+    }
+
+    .back-btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .back-btn svg {
+        width: 28px;
+        height: 34px;
+    }
+
+    .search-input {
+        padding: 26px 80px;
+        font-size: 26px;
+        border-radius: 40px;
+    }
+
+    .search-icon {
+        left: 30px;
+    }
+
+    .search-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .results-header {
+        font-size: 36px;
+        margin-bottom: 38px;
+    }
+
+    .destination-card {
+        border-radius: 35px;
+    }
+
+    .card-image-container {
+        height: 480px;
+    }
+
+    .card-overlay {
+        padding: 50px;
+    }
+
+    .destination-name svg {
+        width: 220px;
+        height: 38px;
+    }
+
+    .rating svg {
+        width: 220px;
+        height: 46px;
+    }
+
+    .indicator {
+
+        display: none;
+    }
 }
