@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Create an Account</title>
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="signup.css">
+     <script src="signup.js"></script>
+</head>
+<body>
+     <div class="input-box">
+          <header>
+               <h1>Create an Account</h1>
+               <p>Sign up to unlock travel destination choices and seamless ticket booking.</p>
+
+          </header>
+
+          <form action="#">
+
+               <div class="input-group">
+                    <label for="fullname">Fullname</label>
+                    <input type="text" id="fullname" placeholder="Enter Fullname">
+               </div> 
+
+               <div class="input-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" id="dob" placeholder="dd/mm/yy" onfocus="(this.type='date')" onblur="(this.type=text)">
+               </div>
+
+               <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="icon-input-email">
+                         <i class="fa-regular fa-envelope input-icon-left"></i>
+                         <input type="text" id="email" placeholder="Enter Email" class="has-left-icon">    
+                    </div>
+               </div>
+
+               <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="icon-input-password">
+                         <input type="password" id="password" placeholder="Enter Password">
+                         <img src="eye-close.png" id="eyeicon" width="20px">
+                    </div>
+               </div>
+
+               <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">I agree to TravelGenesis<a href="">Terms & Conditions</a></label>
+               </div>
+
+               <div class="signin-link">
+                    Already have an account?<a href="">Sign in</a>
+               </div>
+
+               <button type="submit" class="submit-btn">Sign up</button>
+
+          </form>
+     </div>
+</body>
+</html>
