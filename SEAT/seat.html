@@ -128,18 +128,12 @@
 
     <script>
         // Add click functionality to seats
-        document.querySelectorAll('.seat.available').forEach(seat => {
+        document.querySelectorAll('.seat.available, .seat.selected').forEach(seat => {
             seat.addEventListener('click', function () {
-                this.classList.toggle('selected');
-                this.classList.toggle('available');
-            });
-        });
-
-        // Add click functionality to selected seats
-        document.querySelectorAll('.seat.selected').forEach(seat => {
-            seat.addEventListener('click', function () {
-                this.classList.toggle('selected');
-                this.classList.toggle('available');
+                if (!this.classList.contains('booked')) {
+                    this.classList.toggle('selected');
+                    this.classList.toggle('available');
+                }
             });
         });
     </script>
