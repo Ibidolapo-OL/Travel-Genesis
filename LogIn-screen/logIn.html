@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="logIn.css">
+  </head>
+  <body>
+    <h1>Welcome Back!</h1>
+    <p>please enter your email & password to sign in below.</p>
+
+    <div class="form">
+      <form action="#" onsubmit="handleLogin(event)">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          class="email-input"
+          required
+        />
+      </form>
+
+      <form action="#" onsubmit="handleLogin(event)">
+        <label for="password">Password</label>
+        <input
+          type="paasword"
+          placeholder="Enter password"
+          class="password-input"
+          required
+        />
+      </form>
+    </div>
+
+    <p class="sign-in">Don't have an account? <a href="#">Sign up</a></p>
+    <hr/><br>
+    <div class="btn"><button type="submit">Sign in</button></div>
+
+    
+  </body>
+</html>
