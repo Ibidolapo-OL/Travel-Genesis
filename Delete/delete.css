@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 340px;
+    overflow: hidden;
+}
+
+.modal-body {
+    padding: 30px 24px 24px;
+}
+
+.modal-message {
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0D7377 0%, #0A5F63 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 115, 119, 0.3);
+}
+
+.btn-danger {
+    background: white;
+    color: #0D7377;
+    border: 2px dashed #cf0923;
+}
+
+.btn-danger:hover {
+    background: #f8fafa;
+    border-color: #0A5F63;
+    color: #0A5F63;
+}
+
+/* Small Mobile (up to 375px) */
+@media (max-width: 375px) {
+    .modal-body {
+        padding: 25px 20px 20px;
+    }
+
+    .modal-message {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+
+/* iPad Mini and smaller tablets (768px - 834px) */
+@media (min-width: 768px) and (max-width: 834px) {
+    body {
+        padding: 40px;
+    }
+
+    .modal-container {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 420px;
+        background: none;
+    }
+
+    .modal-body {
+        padding: 40px 32px 32px;
+    }
+
+    .modal-message {
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+
+    .btn {
+        padding: 15px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+
+    .modal-buttons {
+        gap: 14px;
+    }
+}
+
+/* iPad Air and iPad Pro (835px - 1024px) */
+@media (min-width: 835px) and (max-width: 1024px) {
+    body {
+        padding: 50px;
+    }
+
+    .modal-container {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 460px;
+    }
+
+    .modal-body {
+        padding: 45px 36px 36px;
+    }
+
+    .modal-message {
+        font-size: 17px;
+        margin-bottom: 30px;
+        line-height: 1.7;
+    }
+
+    .btn {
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .modal-buttons {
+        gap: 16px;
+    }
+}
+
+/* Small Desktop (1025px - 1439px) */
+@media (min-width: 1025px) and (max-width: 1439px) {
+    body {
+        padding: 60px;
+    }
+
+    .modal-container {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 500px;
+    }
+
+    .modal-body {
+        padding: 50px 40px 40px;
+    }
+
+    .modal-message {
+        font-size: 18px;
+        margin-bottom: 32px;
+        line-height: 1.7;
+    }
+
+    .btn {
+        padding: 17px;
+        font-size: 17px;
+        border-radius: 8px;
+    }
+
+    .modal-buttons {
+        gap: 18px;
+    }
+}
+
+/* Large Desktop (1440px and above) */
+@media (min-width: 1440px) {
+    body {
+        padding: 70px;
+
+    }
+
+    .modal-container {
+        border-radius: 0;
+        max-width: 550px;
+        background: none;
+        border-radius: 12px;
+
+
+    }
+
+    .modal-body {
+        padding: 55px 45px 45px;
+    }
+
+    .modal-message {
+        font-size: 25px;
+        margin-bottom: 36px;
+        line-height: 1.8;
+    }
+
+    .btn {
+        padding: 18px;
+        font-size: 23px;
+        border-radius: 10px;
+    }
+
+    .modal-buttons {
+        gap: 20px;
+    }
+}

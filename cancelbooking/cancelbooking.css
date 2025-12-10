@@ -1,0 +1,181 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: sans-serif;
+     /* background-color: whitesmoke; */
+     height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 20px;
+ }
+
+ .dialog-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 1000;
+ }
+
+ .dialog-container {
+     background-color: #ffffff;
+     border-radius: 12px;
+     padding: 32px 24px;
+     max-width: 400px;
+     width: 100%;
+     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+ }
+
+ .dialog-message {
+     font-size: 16px;
+     color: #333333;
+     text-align: center;
+     margin-bottom: 28px;
+     line-height: 1.5;
+ }
+
+ .dialog-buttons {
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+ }
+
+ .btn {
+     padding: 14px 24px;
+     font-size: 15px;
+     font-weight: 500;
+     border-radius: 8px;
+     border: none;
+     cursor: pointer;
+     transition: all 0.2s ease;
+     text-align: center;
+ }
+
+ .btn-primary {
+     background-color: #008B9C;
+     color: #ffffff;
+ }
+
+ .btn-primary:hover {
+     background-color: #007282;
+ }
+
+ .btn-primary:active {
+     transform: scale(0.98);
+ }
+
+ .btn-secondary {
+     background-color: transparent;
+     color: #008B9C;
+     border: 1.5px solid #008B9C;
+ }
+
+ .btn-secondary:hover {
+     background-color: #f0f9fa;
+ }
+
+ .btn-secondary:active {
+     transform: scale(0.98);
+ }
+
+ /* ============================================
+           TABLET - iPad (768px and up)
+           Remove border radius
+           ============================================ */
+ @media (min-width: 768px) {
+     .dialog-container {
+         border-radius: 0;
+         max-width: 500px;
+         padding: 40px 32px;
+     }
+
+     .dialog-message {
+         font-size: 18px;
+         margin-bottom: 32px;
+     }
+
+     .btn {
+         padding: 16px 28px;
+         font-size: 16px;
+     }
+ }
+
+ /* ============================================
+           DESKTOP - 1024px and up
+           No border radius, larger size
+           ============================================ */
+ @media (min-width: 1024px) {
+     .dialog-container {
+         border-radius: 0;
+         max-width: 550px;
+         padding: 45px 40px;
+         box-shadow: none;
+
+     }
+
+     .dialog-message {
+         font-size: 19px;
+         margin-bottom: 35px;
+     }
+
+     .btn {
+         padding: 18px 32px;
+         font-size: 17px;
+     }
+ }
+
+ /* ============================================
+           LARGE DESKTOP - 1440px and up
+           No border radius, maximum size
+           ============================================ */
+ @media (min-width: 1440px) {
+     .dialog-container {
+         border-radius: 0;
+         max-width: 600px;
+         padding: 50px 45px;
+     }
+
+     .dialog-message {
+         font-size: 20px;
+         margin-bottom: 40px;
+     }
+
+     .btn {
+         padding: 20px 35px;
+         font-size: 18px;
+     }
+ }
+
+ /* ============================================
+           MOBILE - Keep border radius (below 768px)
+           ============================================ */
+ @media (max-width: 767px) {
+     .dialog-container {
+         border-radius: 12px;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .dialog-container {
+         padding: 28px 20px;
+     }
+
+     .dialog-message {
+         font-size: 15px;
+         margin-bottom: 24px;
+     }
+
+     .btn {
+         padding: 13px 20px;
+         font-size: 14px;
+     }
+ }
