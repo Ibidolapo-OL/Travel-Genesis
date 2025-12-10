@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  * {
       box-sizing: border-box;
       margin: 0;
@@ -235,3 +236,176 @@
            margin: 20px auto 0;
       }
  }
+=======
+*{
+     box-sizing: border-box;
+     margin: 0%;
+     padding: 0%;
+     font-family: 'Poppins', sans-serif;
+}
+
+body{
+     background-color: #f0f2f5;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+ .input-box{
+     background-color: #fff;
+     width: 90%;
+     max-width: 500px;
+     padding: 14px 45px 14px 14px;
+     margin: 300px auto;
+     border-radius: 5px;
+} 
+
+h1{
+     font-size: 28px;
+     color: #333;
+     margin-bottom: 10px;
+     font-weight: 600;
+}
+
+p{
+     font-size: 14px;
+     color: #666;
+     line-height: 1.5;
+     margin-bottom: 30px;
+}
+
+.input-group{
+     margin-bottom: 20px;
+}
+
+label{
+     display: block;
+     font-size: 14px;
+     font-weight: 500;
+     color: #444;
+     margin-bottom: 8px;
+}
+
+input{
+     width: 100%;
+     padding: 14px 45px 14px 14px;
+     border: 1px solid #eee;
+     background-color: #f9f9f9;
+     border-radius: 12px;
+     font-size: 14px;
+     outline: none; 
+     transition: 0.3s;
+}
+
+.icon-input-password #password{
+     top: 14px; right: 45px; 
+     bottom: 14px; left: 14px;
+     padding: 14px 45px 14px 14px;
+}
+
+input:focus{
+     border-color: #8edeb8;
+     background-color: #fff;
+}
+
+
+input::placeholder{
+     color: #aaa;
+}
+
+.icon-input{
+     width: 100%;
+     align-items: center;
+     padding: 10px 0;
+     position: relative;
+     right: 10px;
+     cursor: pointer;
+}
+
+.icon-input-password{
+     width: 100%;
+     padding: 10px 0;
+     position: relative;
+}
+#eyeicon{
+     height: auto;
+     width: 24px---;
+     right: 10px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     cursor: pointer;
+}
+.input-icon-left{
+     position: absolute;
+     left: 16px;
+     top: 50%;
+     transform: translateY(-50%);
+     color: #888;
+}
+
+.input-icon-right{
+     position: absolute;
+     left: 16px;
+     top: 50%;
+     transform: translateY(-50%);
+     color: #888;
+     cursor: pointer;
+}
+
+.has-left-icon{
+     padding-left: 45px;
+}
+.checkbox-group{
+     display: flex;
+     align-items: flex-start;
+     gap: 10px;
+     margin-top: 10px;
+     font-size: 13px;
+     color: #555;
+}
+
+.checkbox-group input{
+     width: auto;
+     margin-top: 3px;
+}
+
+.checkbox-group a, .signin-link a{
+     color: #444;
+     text-decoration: underline;
+     font-weight: 600;
+}
+
+.signin-link{
+     text-align: center;
+     font-size: 13px;
+     color: #666;
+     margin: 25px 0;
+}
+
+.signin-link a{
+     color: #AAD3D9;
+     text-decoration: none;
+}
+
+.submit-btn{
+     width: 100%;
+     padding: 16px;
+     background-color: #AAD3D9; 
+     color: #fff;
+     border: none;
+     border-radius: 12px;
+     font-size: 16px;
+     cursor: not-allowed;
+     transition: 0.3s ease;
+}
+
+.submit-btn-is-active{
+     background-color: #007A8C;
+     cursor: pointer;
+}
+
+.submit-btn-is-active:hover{
+     background-color: #245d65;
+}
+>>>>>>> 4304cac9346463e70d3cb616432572bc25222751
