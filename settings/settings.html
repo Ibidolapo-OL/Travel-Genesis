@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings Screen</title>
+    <link rel="stylesheet" href="settings.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="header">
+                <span class="back-btn"><i class="fa-solid fa-arrow-left"></i></span>
+                Settings
+            </div>
+
+            <div class="settings-section">
+                <!-- Language Setting -->
+                <div class="setting-item">
+                    <div class="setting-left">
+                        <i class="fa-solid fa-globe"></i>
+                        <span class="setting-label">Application language</span>
+                    </div>
+                    <span class="right-text">English</span>
+                </div>
+
+                <!-- Notifications Toggle -->
+                <div class="setting-item">
+                    <div class="setting-left">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="setting-label">Push notifications</span>
+                    </div>
+
+                    <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="footer">
+            <div class="nav-item"><i class="fa-solid fa-house"></i>Home</div>
+            <div class="nav-item"><i class="fa-regular fa-compass"></i>Explore</div>
+            <div class="nav-item"><i class="fa-solid fa-globe"></i>Globe</div>
+            <div class="nav-item active">
+                <i class="fa-solid fa-user"></i>Profile
+            </div>
+        </div>
+    </div>
+    <SCRipt src="settings.js"></SCRipt>
+</body>
+
+</html>
