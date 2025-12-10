@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Trip Screen</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="trip.css">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <i id="backBtn" class="fa-solid fa-arrow-left"></i>
+            <h1>My Trip</h1>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <div class="section-title">Pending trips</div>
+
+            <div class="trip-card">
+
+                <div class="trip-row">
+                    <div class="place">
+                        <span class="label">From</span>
+                        <span class="code">LOS</span>
+                        <span class="country">Nigeria</span>
+                    </div>
+
+                    <div class="place" style="text-align:right;">
+                        <span class="label">To</span>
+                        <span class="code">LDN</span>
+                        <span class="country">United Kingdom</span>
+                    </div>
+                </div>
+
+                <!-- CENTERED AIRPLANE ICON -->
+                <div class="plane-circle">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+
+                <div class="details-row">
+                    <div class="date"><i class="fa-solid fa-calendar"></i> 03-12-2025</div>
+                    <div class="time"><i class="fa-solid fa-clock"></i> 7:30 AM</div>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn view-btn" id="viewBtn">View Tickets</button>
+                    <button class="btn cancel-btn" id="cancelBtn">Cancel Booking</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <nav class="footer" role="navigation">
+        <a class="footer-item" href="#"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a class="footer-item active" href="#"><i class="fa-solid fa-ticket"></i><span>My Trip</span></a>
+        <a class="footer-item" href="#"><i class="fa-solid fa-globe"></i><span>Explore</span></a>
+        <a class="footer-item" href="#"><i class="fa-solid fa-user"></i><span>Profile</span></a>
+    </nav>
+
+    <!-- JAVASCRIPT -->
+    <script src="trip.js">
+
+    </script>
+
+</body>
+
+</html>
