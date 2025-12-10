@@ -1,73 +1,90 @@
-body{
-     background-color:  #004d60;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     gap: 20px;
-     min-height: 100vh;
-     flex-wrap: wrap;
-     padding: 20px;
-     font-family: 'Poppins',sans-serif;
-}
+        * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+        }
 
-.mobile-screen{
-     width: 375px;
-     height: 812px;
-     border-radius: 30px;
-     overflow: hidden;
-     box-shadow: 0 20px 40px rgba(0,0,0,2);
-     position: relative;
-}
+        body {
+             font-family: 'Poppins', sans-serif;
+             background: linear-gradient(180deg, #007a8c 0%, #004d60 100%);
+             min-height: 100vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             overflow: hidden;
+        }
 
-.mobile-screen-background{
-background-image: linear-gradient(
-    #007a8c, #004D60
-);
+        .splash-screen {
+             width: 100%;
+             max-width: 375px;
+             height: 100vh;
+             max-height: 812px;
+             background: linear-gradient(180deg, #007a8c 0%, #004d60 100%);
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             padding: 20px;
+             position: relative;
+        }
 
-}
-.splash-screen{
-     background-color: #004d60;
-     /* background-color: #007a8c; */
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     color: #3f5153;
-}
 
-.logo-area{
-     text-align: center;
-}
 
-.logo-text {
-    color: #ffffff;
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: normal;
-}
+        .status-icons {
+             display: flex;
+             gap: 5px;
+             align-items: center;
+        }
 
-.logo-text .highlight {
-    color: #489fa4;
-}
+        /* Logo and content */
+        .logo-container {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 20px;
+             padding-left: 40px;
+        }
 
-.logo-icon{
-     font-size: 80px;
-     margin-bottom: 10px;
-}
+        .logo-icon {
+             width: 127px;
+             height: 141px;
+             position: relative;
+        }
 
-.splash-title{
-     font-size: 28px;
-     margin-bottom: 5px;
-     letter-spacing: 0.5px;
-}
+        /* SVG logo for the suitcase with plane */
+        .logo-svg {
+             width: 100%;
+             height: 100%;
+        }
 
-.splash-subtitle{
-     color: azure;
-     font-weight: 400;
-     font: Poppins;
-     font-style: Regular;
-     font-size: 16px;
-     line-height: 100%;
-     letter-spacing: 0%;
+        .logo-text {
+             color: #ffffff;
+             font-size: 30px;
+             font-weight: 400;
+             letter-spacing: 0.5px;
+             margin-top: 10px;
+        }
 
-}
+        .logo-text .highlight {
+             color: #66b5bb;
+        }
+
+        .tagline {
+             color: #e0f4f5;
+             font-size: 16px;
+             font-weight: 300;
+             margin-top: 5px;
+             letter-spacing: 0.3px;
+        }
+
+        /* Home indicator for iPhone X+ */
+        .home-indicator {
+             position: absolute;
+             bottom: 8px;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 134px;
+             height: 5px;
+             background-color: rgba(255, 255, 255, 0.3);
+             border-radius: 100px;
+        }
