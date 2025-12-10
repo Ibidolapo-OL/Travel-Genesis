@@ -6,7 +6,11 @@
     <title>Profile Page</title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="TravelGenesis.css" />
+    <link rel="stylesheet" href="MyProfile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
 
@@ -14,11 +18,7 @@
     <div class="profile-container">
       <!-- Top Profile Section -->
       <div class="top-box">
-        <img
-          src="https://via.placeholder.com/100/9c88ff/ffffff?text=👤"
-          alt="Profile"
-          class="avatar"
-        />
+        <img src="ProfileImage.svg" class="avatar" alt="User Profile Image" />
         <h2>Naomi Davies</h2>
         <p>daviesnaomi005@gmail.com</p>
       </div>
@@ -75,8 +75,16 @@
       </div>
     </div>
 
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="nav-item"><i class="fa-solid fa-house"></i>Home</div>
+      <div class="nav-item"><i class="fa-regular fa-compass"></i>Explore</div>
+      <div class="nav-item"><i class="fa-solid fa-globe"></i>Globe</div>
+      <div class="nav-item active"><i class="fa-solid fa-user"></i>Profile</div>
+    </div>
+
     <!-- Link JS -->
-    <script src="TravelGenesis.js"></script>
+    <script src="MyProfile.js"></script>
     <script>
       feather.replace();
     </script>
