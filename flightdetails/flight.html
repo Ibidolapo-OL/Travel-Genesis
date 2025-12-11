@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Flight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 375px;
+            border-radius: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Desktop/Tablet: Card style */
+        @media (min-width: 481px) {
+            body {}
+
+            .container {
+                max-width: 450px;
+                min-height: auto;
+                background-color: #e8ecef;
+                border-radius: 24px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                padding: 32px 24px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                max-width: 500px;
+            }
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            gap: 16px;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            flex: 1;
+        }
+
+        @media (min-width: 481px) {
+            .header-title {
+                font-size: 24px;
+            }
+        }
+
+        /* Route Card (Top) */
+        .route-card {
+            background: linear-gradient(135deg, #7ab5ba 0%, #6ba5aa 100%);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .route-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .location {
+            flex: 1;
+        }
+
+        .location-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+
+        .location-country {
+            font-size: 13px;
+            color: #2c5356;
+        }
+
+        .route-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 12px;
+        }
+
+        .on-time-badge {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-size: 11px;
+            color: #2c5356;
+            font-weight: 500;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .plane-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .plane-icon svg {
+            width: 20px;
+            height: 20px;
+            transform: rotate(90deg);
+        }
+
+        /* Flight Cards */
+        .flights-list {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .flight-card {
+            background: #b8d9dd;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .flight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .flight-card.selected {
+            border-color: #7b5fb5;
+            background: #d4e4f7;
+        }
+
+        .flight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .flight-location {
+            flex: 1;
+        }
+
+        .flight-city {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+
+        .flight-country {
+            font-size: 12px;
+            color: #2c5356;
+        }
+
+        .flight-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 12px;
+        }
+
+        .flight-badge {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 3px 10px;
+            font-size: 10px;
+            color: #2c5356;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .flight-duration {
+            font-size: 11px;
+            color: #2c5356;
+            font-weight: 500;
+        }
+
+        .flight-times {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flight-time {
+            flex: 1;
+        }
+
+        .time {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+
+        .time-location {
+            font-size: 11px;
+            color: #2c5356;
+        }
+
+        /* Continue Button */
+        .continue-btn {
+            width: 100%;
+            padding: 18px;
+            background: #007a8c;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .continue-btn:hover {
+            background: #005f6e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 122, 140, 0.3);
+        }
+
+        .continue-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Home Indicator */
+        .home-indicator {
+            width: 134px;
+            height: 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 100px;
+            margin: 16px auto 0;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .home-indicator {
+                display: block;
+            }
+        }
+
+        /* Tablet & Desktop adjustments */
+        @media (min-width: 481px) {
+            .flight-card {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .flight-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        /* Scrollbar styling */
+        .flights-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .flights-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .flights-list::-webkit-scrollbar-thumb {
+            background: #b8d9dd;
+            border-radius: 10px;
+        }
+
+        .flights-list::-webkit-scrollbar-thumb:hover {
+            background: #7ab5ba;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-btn" onclick="goBack()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <h1 class="header-title">Choose flight</h1>
+        </div>
+
+        <!-- Route Card -->
+        <div class="route-card">
+            <div class="route-header">
+                <div class="location">
+                    <div class="location-name" style=" font-weight: 100;
+            color: #a59c9c;">from</div>
+
+                    <div class="location-name">Lagos</div>
+                    <div class="location-country">Nigeria</div>
+                </div>
+
+                <div class="route-center">
+                    <div class="on-time-badge">100% on time</div>
+                    <div class="plane-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#007a8c" stroke-width="2">
+                            <path
+                                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="location" style="text-align: right;">
+                    <div class="location-name" style=" font-weight: 100;
+            color: #8d8383;">to</div>
+                    <div class="location-name">London</div>
+                    <div class="location-country">Uk</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flights List -->
+        <div class="flights-list">
+            <!-- Flight 1 - Selected -->
+            <div class="flight-card selected" onclick="selectFlight(this)">
+                <div class="flight-header">
+                    <div class="flight-location">
+                        <div class="flight-city">Lagos</div>
+                        <div class="flight-country">Nigeria</div>
+                    </div>
+
+                    <div class="flight-center">
+                        <div class="flight-badge">100% on time</div>
+                        <div class="flight-duration">12h 30m</div>
+                    </div>
+
+                    <div class="flight-location" style="text-align: right;">
+                        <div class="flight-city">London</div>
+                        <div class="flight-country">Uk</div>
+                    </div>
+                </div>
+
+                <div class="flight-times">
+                    <div class="flight-time">
+                        <div class="time">7:00 AM</div>
+                        <div class="time-location">Nigeria</div>
+                    </div>
+
+                    <div style="width: 60px;"></div>
+
+                    <div class="flight-time" style="text-align: right;">
+                        <div class="time">7:30 PM</div>
+                        <div class="time-location">Uk</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight 2 -->
+            <div class="flight-card" onclick="selectFlight(this)">
+                <div class="flight-header">
+                    <div class="flight-location">
+                        <div class="flight-city">Lagos</div>
+                        <div class="flight-country">Nigeria</div>
+                    </div>
+
+                    <div class="flight-center">
+                        <div class="flight-badge">100% on time</div>
+                        <div class="flight-duration">12h 30m</div>
+                    </div>
+
+                    <div class="flight-location" style="text-align: right;">
+                        <div class="flight-city">London</div>
+                        <div class="flight-country">Uk</div>
+                    </div>
+                </div>
+
+                <div class="flight-times">
+                    <div class="flight-time">
+                        <div class="time">8:00 AM</div>
+                        <div class="time-location">Nigeria</div>
+                    </div>
+
+                    <div style="width: 60px;"></div>
+
+                    <div class="flight-time" style="text-align: right;">
+                        <div class="time">9:30 PM</div>
+                        <div class="time-location">Uk</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight 3 -->
+            <div class="flight-card" onclick="selectFlight(this)">
+                <div class="flight-header">
+                    <div class="flight-location">
+                        <div class="flight-city">Lagos</div>
+                        <div class="flight-country">Nigeria</div>
+                    </div>
+
+                    <div class="flight-center">
+                        <div class="flight-badge">100% on time</div>
+                        <div class="flight-duration">12h 30m</div>
+                    </div>
+
+                    <div class="flight-location" style="text-align: right;">
+                        <div class="flight-city">London</div>
+                        <div class="flight-country">Uk</div>
+                    </div>
+                </div>
+
+                <div class="flight-times">
+                    <div class="flight-time">
+                        <div class="time">12:30 PM</div>
+                        <div class="time-location">Nigeria</div>
+                    </div>
+
+                    <div style="width: 60px;"></div>
+
+                    <div class="flight-time" style="text-align: right;">
+                        <div class="time">1:00 AM</div>
+                        <div class="time-location">Uk</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue Button -->
+        <button class="continue-btn" onclick="continueFlight()">Continue</button>
+
+        <!-- Home Indicator -->
+        <div class="home-indicator"></div>
+    </div>
+
+    <script>
+        function selectFlight(element) {
+            // Remove selected class from all cards
+            document.querySelectorAll('.flight-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Add selected class to clicked card
+            element.classList.add('selected');
+        }
+
+        function continueFlight() {
+            const selectedFlight = document.querySelector('.flight-card.selected');
+            if (selectedFlight) {
+                alert('Flight selected! Proceeding to booking...');
+                // Add your navigation logic here
+                // window.location.href = 'booking.html';
+            } else {
+                alert('Please select a flight first!');
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+            // Or: window.location.href = 'home.html';
+        }
+
+        // Add fade-in animation on page load
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            document.body.style.transition = 'opacity 0.3s ease';
+            document.body.style.opacity = '1';
+        }, 100);
+    </script>
+</body>
+
+</html>
