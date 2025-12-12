@@ -11,9 +11,10 @@ function selectFlight(element) {
 function continueFlight() {
   const selectedFlight = document.querySelector(".flight-card.selected");
   if (selectedFlight) {
-    alert("Flight selected! Proceeding to booking...");
+    // alert("Flight selected! Proceeding to booking...");
     // Add your navigation logic here
-    // window.location.href = 'booking.html';
+    window.location.href =
+      // "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
   } else {
     alert("Please select a flight first!");
   }
