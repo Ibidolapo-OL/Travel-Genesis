@@ -1,26 +1,7 @@
-// Back button
-document.getElementById("backBtn").addEventListener("click", function () {
-  window.location.href = "../Home-screen/home.html";
-});
-
-// View Ticket
-document.getElementById("viewBtn").addEventListener("click", function () {
-  window.location.href = "../E-ticket/e_tickect.html";
-});
-
-// Cancel Booking
-document.getElementById("cancelBtn").addEventListener("click", function () {
-  let confirmDelete = confirm("Are you sure you want to cancel your booking?");
-  if (confirmDelete) {
-    alert("Booking cancelled successfully.");
-  }
-});
-
-// Bottom Navigation
 document.addEventListener("DOMContentLoaded", function () {
   const navItems = document.querySelectorAll(".nav-item");
 
-  // Attach handlers by label text (more robust than fixed indices)
+  // Attach handlers by label text (same approach used in Trip)
   navItems.forEach((item) => {
     const label = (item.textContent || "").trim().toLowerCase();
 
@@ -36,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       item.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        // Already on trip page, no navigation needed
+        window.location.href = "../Trip/trip.html";
       });
     }
 
@@ -44,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       item.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.href = "../Explore/explore.html";
+        // already on explore - no navigation
       });
     }
 

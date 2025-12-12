@@ -19,6 +19,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Debug: click logger to help identify accidental targets (capture phase)
+(function addClickLogger() {
+  if (window.__clickLoggerAdded) return;
+  document.addEventListener(
+    "click",
+    function (e) {
+      try {
+        const tgt = e.target;
+        console.log(
+          "DEBUG_CLICK -> target:",
+          tgt,
+          "class:",
+          tgt.className,
+          "text:",
+          (tgt.textContent || "").trim()
+        );
+        if (e.composedPath) {
+          const path = e.composedPath().map((el) => {
+            if (!el) return el;
+            if (el.tagName)
+              return el.tagName + (el.className ? "." + el.className : "");
+            return el;
+          });
+          console.log("DEBUG_CLICK path:", path);
+        }
+      } catch (err) {
+        console.log("DEBUG_CLICK error", err);
+      }
+    },
+    true
+  );
+  window.__clickLoggerAdded = true;
+})();
+
 // for the notification click
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,12 +79,45 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const bookbtns = document.querySelectorAll(".book-btn");
   if (bookbtns.length > 0) {
-    bookbtns.forEach(bookbtn => {
+    bookbtns.forEach((bookbtn) => {
       bookbtn.addEventListener("click", function (e) {
         e.preventDefault();
-        console.log("Book button clicked! Navigating to flight details page...");
+        console.log(
+          "Book button clicked! Navigating to flight details page..."
+        );
         window.location.href = "../flightdetails/flight.html";
       });
+    });
+  }
+});
+
+// for the My Trip navigation click
+document.addEventListener("DOMContentLoaded", () => {
+  const myTripNavItem = document.querySelector(".nav-item:nth-child(2)");
+  if (myTripNavItem) {
+    myTripNavItem.addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log("My Trip clicked! Navigating to trip page...");
+      window.location.href = "../Trip/trip.html";
+    });
+  }
+});
+
+// for the Explore navigation click
+document.addEventListener("DOMContentLoaded", () => {
+  const navItems = document.querySelectorAll(".bottom-nav .nav-item");
+  if (navItems.length > 0) {
+    // Find nav item by visible label text to avoid index issues
+    navItems.forEach((item) => {
+      const label = (item.textContent || "").trim().toLowerCase();
+      if (label === "explore" || label.includes("explore")) {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log("Explore clicked! Navigating to explore page...");
+          window.location.href = "../Explore/explore.html";
+        });
+      }
     });
   }
 });
