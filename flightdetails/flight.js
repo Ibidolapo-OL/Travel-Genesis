@@ -11,8 +11,7 @@ function selectFlight(element) {
 function continueFlight() {
   const selectedFlight = document.querySelector(".flight-card.selected");
   if (selectedFlight) {
-    window.location.href =
-      "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
+    window.location.href = "../DatePicker/datepicker.html";
   } else {
     alert("Please select a flight first!");
   }
