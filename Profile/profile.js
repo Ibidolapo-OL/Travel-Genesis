@@ -52,11 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // Logout functionality
 document.getElementById("logoutBtn").addEventListener("click", function (e) {
   e.preventDefault();
-  const confirmLogout = confirm("Are you sure you want to logout?");
-  if (confirmLogout) {
-    // Navigate to home or login page
-    window.location.href = "../Home-screen/home.html";
-  }
+  //   const confirmLogout = confirm("Are you sure you want to logout?");
+  // Navigate to home or login page
+  window.location.href = "../Logout/logout.html";
 });
 
 // Delete Account functionality
@@ -64,18 +62,16 @@ document
   .getElementById("deleteAccountBtn")
   .addEventListener("click", function (e) {
     e.preventDefault();
-    const confirmDelete = confirm(
-      "Are you sure you want to delete your account? This action cannot be undone."
-    );
-    if (confirmDelete) {
-      const finalConfirm = confirm(
-        "This is your last chance. Are you absolutely sure?"
-      );
-      if (finalConfirm) {
-        alert("Your account has been deleted successfully.");
-        window.location.href = "../Home-screen/home.html";
-      }
-    }
+    // const confirmDelete = confirm(
+    //   "Are you sure you want to delete your account? This action cannot be undone."
+    // );
+    // if (confirmDelete) {
+    //   const finalConfirm = confirm(
+    //     "This is your last chance. Are you absolutely sure?"
+    //   );
+    //   if (finalConfirm) {
+    //     alert("Your account has been deleted successfully.");
+    window.location.href = "../Delete/delete.html";
   });
 
 // Profile nav item - prevent default (already on profile page)
@@ -127,3 +123,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+//////////////////////////////////////////////////

@@ -9,11 +9,9 @@ document.getElementById("viewBtn").addEventListener("click", function () {
 });
 
 // Cancel Booking
+
 document.getElementById("cancelBtn").addEventListener("click", function () {
-  let confirmDelete = confirm("Are you sure you want to cancel your booking?");
-  if (confirmDelete) {
-    alert("Booking cancelled successfully.");
-  }
+  window.location.href = "../cancelbooking/cancelbooking.html";
 });
 
 // Bottom Navigation
@@ -55,5 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "../Profile/profile.html";
       });
     }
+  }); // for the delete account button
+  document.addEventListener("DOMContentLoaded", function () {
+    const logoutbtn = document.getElementById("btn-cancelbtn-delete");
+    if (logoutbtn) {
+      logoutbtn.addEventListener("click", function () {
+        console.log("returning to splash page...");
+
+        window.location.href = "../Splash/splash.html";
+      });
+    }
   });
+
+  cancelBtn;
 });
