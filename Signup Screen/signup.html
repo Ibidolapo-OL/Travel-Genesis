@@ -7,7 +7,6 @@
      <title>Create an Account</title>
      <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="signup.css">
-     <script src="signup.js"></script>
 </head>
 
 <body>
@@ -32,15 +31,7 @@
                <div class="input-group">
                     <label for="email">Email</label>
                     <div class="icon-input-email">
-                         <!-- <i class="fa-regular fa-envelope input-icon-left"></i> -->
-                         <!-- <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M2 16C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H18C18.55 0 19.0208 0.195833 19.4125 0.5875C19.8042 0.979167 20 1.45 20 2V14C20 14.55 19.8042 15.0208 19.4125 15.4125C19.0208 15.8042 18.55 16 18 16H2ZM10 9L2 4V14H18V4L10 9ZM10 7L18 2H2L10 7ZM2 4V2V14V4Z"
-                                   fill="#6A6A6A" />
-                         </svg> -->
-
-                         <input type="text" id="email" placeholder="Enter Email" class="has-left-icon">
-                         div
-
+                         <input type="email" id="email" placeholder="Enter Email">
                     </div>
                </div>
 
@@ -48,20 +39,20 @@
                     <label for="password">Password</label>
                     <div class="icon-input-password">
                          <input type="password" id="password" placeholder="Enter Password">
-                         <img src="https://img.icons8.com/ios/50/visible--v1.png" id="eyeicon" width="20px">
+                         <img src="./eye-close.png" id="eyeicon" width="20px" alt="Toggle password visibility">
                     </div>
                </div>
 
                <div class="checkbox-group">
                     <input type="checkbox" id="terms">
-                    <label for="terms">I agree to TravelGenesis <a href="">Terms & Conditions</a></label>
+                    <label for="terms">I agree to TravelGenesis <a href="#">Terms & Conditions</a></label>
                </div>
 
                <div class="signin-link">
-                    Already have an account? <a href="">Sign in</a>
+                    Already have an account? <a href="#">Sign in</a>
                </div>
 
-               <button type="submit" class="submit-btn" id="submitBtn">Sign up</button>
+               <button type="submit" class="submit-btn" id="submitBtn" disabled>Sign up</button>
           </form>
 
           <div class="home-indicator"></div>

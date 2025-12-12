@@ -1,28 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //---------------------------------------------------------//
-  const form = document.querySelector("#signup-form");
+  const form = document.querySelector("#signupForm");
   const termsCheckbox = document.querySelector("#terms");
-  const signupBtn = document.querySelector("#submit-btn");
+  const signupBtn = document.querySelector("#submitBtn");
   const passwordInput = document.querySelector("#password");
-  const eyeIcon = document.querySelector("#eyeIcon");
-
+  const eyeIcon = document.querySelector("#eyeicon");
   const fullname = document.querySelector("#fullname");
   const email = document.querySelector("#email");
 
   if (eyeIcon && passwordInput) {
     eyeIcon.addEventListener("click", function () {
-      //check the current type of the input
       const currentType = passwordInput.getAttribute("type");
       if (currentType === "password") {
+        // Password is currently HIDDEN, so we're going to SHOW it
         passwordInput.setAttribute("type", "text");
-        this.src = "./eye-open.png";
+        eyeIcon.src = "./eye-open.png"; // Show OPEN eye because password is now VISIBLE
+        eyeIcon.alt = "Hide password";
       } else {
+        // Password is currently VISIBLE, so we're going to HIDE it
         passwordInput.setAttribute("type", "password");
-        this.src = "./eye-close.png";
+        eyeIcon.src = "./eye-close.png"; // Show CLOSED eye because password is now HIDDEN
+        eyeIcon.alt = "Show password";
       }
     });
   }
-  //--- button state toggle function (check T&C)---
+
+  // Button state toggle function (check T&C)
   function toggleButtonState() {
     if (termsCheckbox.checked) {
       signupBtn.classList.add("is-active");
@@ -35,142 +37,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   termsCheckbox.addEventListener("change", toggleButtonState);
 
-  //---form validation---
+  // Form validation
   if (form) {
     form.addEventListener("submit", function (e) {
-      //prevent the page from reloading immediately
       e.preventDefault();
 
       let isValid = true;
       let errorMessage = "";
 
-      //check Full Name
+      // Reset border colors
+      fullname.classList.remove("error-border");
+      email.classList.remove("error-border");
+      passwordInput.classList.remove("error-border");
+
+      // Check Full Name
       if (fullname.value.trim() === "") {
         isValid = false;
-        errorMessage += "-Please enter your full name.\n";
-        fullname.style.borderColor = "red";
+        errorMessage += "- Please enter your full name.\n";
+        fullname.classList.add("error-border");
       }
 
-      //check password
-      if (passwordinput.value.trim() === "") {
-        isValid = false;
-        errorMessage += "Please enter a password.\n";
-        passwordInput.style.borderColor = "red";
-      }
-
-      //simple email verification
+      // Check Email
       if (email.value.trim() === "" || !email.value.includes("@")) {
         isValid = false;
-        errorMessage += "-Please enter a valid email address.\n";
-        email.style.borderColor = "red";
+        errorMessage += "- Please enter a valid email address.\n";
+        email.classList.add("error-border");
       }
 
-      //check terms & conditions
+      // Check Password
+      if (passwordInput.value.trim() === "") {
+        isValid = false;
+        errorMessage += "- Please enter a password.\n";
+        passwordInput.classList.add("error-border");
+      }
+
+      // Check Terms & Conditions
       if (!termsCheckbox.checked) {
         isValid = false;
-        errorMessage += "-You must agree to the Terms & Conditions.\n";
+        errorMessage += "- You must agree to the Terms & Conditions.\n";
       }
 
       if (isValid) {
-        alert("Account created successfully for" + fullname.value + "!");
-        form.submit();
+        // Redirect to confirmation page
+        window.location.href =
+          "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
       } else {
         alert("Please fix the following errors:\n" + errorMessage);
       }
     });
   }
 
+  // Clear error styling on input
   [fullname, email, passwordInput].forEach((input) => {
     input.addEventListener("input", () => {
-      input.style.borderColor = "#eee";
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  //---------------------------------------------------------//
-  const form = document.querySelector("#signup-form");
-  const termsCheckbox = document.querySelector("#terms");
-  const signupBtn = document.querySelector("#submit-btn");
-  const passwordInput = document.querySelector("#password");
-  const eyeIcon = document.querySelector("#eyeIcon");
-
-  const fullname = document.querySelector("#fullname");
-  const email = document.querySelector("#email");
-
-  if (eyeIcon && passwordInput) {
-    eyeIcon.addEventListener("click", function () {
-      //check the current type of the input
-      const currentType = passwordInput.getAttribute("type");
-      if (currentType === "password") {
-        passwordInput.setAttribute("type", "text");
-        this.src = "./eye-open.png";
-      } else {
-        passwordInput.setAttribute("type", "password");
-        this.src = "./eye-close.png";
-      }
-    });
-  }
-  //--- button state toggle function (check T&C)---
-  function toggleButtonState() {
-    if (termsCheckbox.checked) {
-      signupBtn.classList.add("is-active");
-      signupBtn.disabled = false;
-    } else {
-      signupBtn.classList.remove("is-active");
-      signupBtn.disabled = true;
-    }
-  }
-
-  termsCheckbox.addEventListener("change", toggleButtonState);
-
-  //---form validation---
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      //prevent the page from reloading immediately
-      e.preventDefault();
-
-      let isValid = true;
-      let errorMessage = "";
-
-      //check Full Name
-      if (fullname.value.trim() === "") {
-        isValid = false;
-        errorMessage += "-Please enter your full name.\n";
-        fullname.style.borderColor = "red";
-      }
-
-      //check password
-      if (passwordinput.value.trim() === "") {
-        isValid = false;
-        errorMessage += "Please enter a password.\n";
-        passwordInput.style.borderColor = "red";
-      }
-
-      //simple email verification
-      if (email.value.trim() === "" || !email.value.includes("@")) {
-        isValid = false;
-        errorMessage += "-Please enter a valid email address.\n";
-        email.style.borderColor = "red";
-      }
-
-      //check terms & conditions
-      if (!termsCheckbox.checked) {
-        isValid = false;
-        errorMessage += "-You must agree to the Terms & Conditions.\n";
-      }
-
-      if (isValid) {
-        alert("Account created successfully for" + fullname.value + "!");
-        form.submit();
-      } else {
-        alert("Please fix the following errors:\n" + errorMessage);
-      }
-    });
-  }
-
-  [fullname, email, passwordInput].forEach((input) => {
-    input.addEventListener("input", () => {
-      input.style.borderColor = "#eee";
+      input.classList.remove("error-border");
     });
   });
 });
