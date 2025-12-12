@@ -170,8 +170,8 @@
  }
 
  .flight-card.selected {
-     border-color: #cfbff0;
-     background: #d4e4f7;
+     /* border-color: #cfbff0; */
+     background: #6ba5aa;
  }
 
  .flight-header {
