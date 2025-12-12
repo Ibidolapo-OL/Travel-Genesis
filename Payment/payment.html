@@ -191,8 +191,44 @@
             </div>
 
             <!-- Pay Button -->
-            <button type="submit" class="pay-button">Pay Now</button>
+            <button type="submit" class="pay-button" id="pay-btn">
+                <span class="pay-btn-text">Pay Now</span>
+                <div class="pay-btn-loading">
+                    <svg class="pay-btn-loader" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none" />
+                    </svg>
+                    <span class="pay-btn-processing">Processing...</span>
+                </div>
+                <svg class="pay-btn-checkmark" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="white" />
+                    <path d="M8 12l3 3 5-5" stroke="#007A8C" stroke-width="2" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
         </form>
+
+        <!-- Success Screen (Receipt in front) -->
+        <div class="success-screen" id="success-screen">
+            <div class="success-content">
+                <div class="success-checkmark">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="40" fill="#B3E5FC" />
+                        <circle cx="40" cy="40" r="32" fill="#80DEEA" />
+                        <circle cx="40" cy="40" r="28" fill="#007A8C" />
+                        <path d="M30 40L36 46L54 28" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h2 class="success-title">Flight Successfully Booked!</h2>
+                <p class="success-message">Your bank transfer was successful,<br>you're now set for an amazing trip</p>
+                <div class="success-buttons">
+                    <button class="success-btn primary" id="view-tickets-btn">View Tickets</button>
+                    <button class="success-btn secondary" id="back-home-btn">Back to Home</button>
+                </div>
+            </div>
+        </div>
 
     </div>
     <script src="payment.js"></script>

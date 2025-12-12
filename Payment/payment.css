@@ -19,6 +19,7 @@
      border-radius: 30px;
      padding: 40px 25px;
      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+     position: relative;
  }
 
  /* Header */
@@ -238,15 +239,107 @@
      cursor: pointer;
      transition: all 0.3s;
      margin-top: 30px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     position: relative;
  }
 
- .pay-button:hover {
+ .pay-button:hover:not(:disabled) {
      transform: translateY(-2px);
      box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
  }
 
- .pay-button:active {
+ .pay-button:active:not(:disabled) {
      transform: translateY(0);
+ }
+
+ .pay-button:disabled {
+     opacity: 0.9;
+ }
+
+ .pay-btn-text {
+     transition: opacity 0.3s ease;
+ }
+
+ .pay-btn-loading {
+     display: none;
+     align-items: center;
+     gap: 8px;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+ }
+
+ .pay-btn-loading.show {
+     display: flex;
+     opacity: 1;
+ }
+
+ .pay-btn-loader {
+     width: 24px;
+     height: 24px;
+     display: none;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     animation: spin 1s linear infinite;
+ }
+
+ .pay-btn-loader.show {
+     display: block;
+     opacity: 1;
+ }
+
+ .pay-btn-processing {
+     font-size: 16px;
+     font-weight: 600;
+     color: white;
+     display: none;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+ }
+
+ .pay-btn-processing.show {
+     display: inline;
+     opacity: 1;
+ }
+
+ .pay-btn-checkmark {
+     width: 24px;
+     height: 24px;
+     display: none;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+ }
+
+ .pay-btn-checkmark.show {
+     display: block;
+     opacity: 1;
+ }
+
+ @keyframes spin {
+     from {
+         transform: rotate(0deg);
+     }
+
+     to {
+         transform: rotate(360deg);
+     }
+ }
+
+ @keyframes bounceIn {
+     0% {
+         transform: scale(0);
+     }
+
+     50% {
+         transform: scale(1.15);
+     }
+
+     100% {
+         transform: scale(1);
+     }
  }
 
  /* ==================== RESPONSIVE BREAKPOINTS ==================== */
@@ -729,5 +822,143 @@
          font-size: 28px;
          border-radius: 25px;
          margin-top: 60px;
+     }
+ }
+
+
+
+
+
+ /* Success Screen Styles */
+ .success-screen {
+     display: none;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background: transparent;
+     z-index: 1002;
+     align-items: center;
+     justify-content: center;
+     opacity: 0;
+     transition: opacity 0.4s ease;
+ }
+
+ .success-screen.active {
+     display: flex;
+     opacity: 1;
+ }
+
+ .success-content {
+     text-align: center;
+     background: white;
+     padding: 60px 40px;
+     border-radius: 24px;
+     max-width: 320px;
+     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+     animation: popIn 0.5s ease;
+     position: relative;
+     z-index: 1003;
+ }
+
+ @keyframes popIn {
+     from {
+         transform: scale(0.8);
+         opacity: 0;
+     }
+
+     to {
+         transform: scale(1);
+         opacity: 1;
+     }
+ }
+
+ .success-checkmark {
+     margin-bottom: 24px;
+     animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+ }
+
+ @keyframes bounceIn {
+     0% {
+         transform: scale(0);
+     }
+
+     50% {
+         transform: scale(1.1);
+     }
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ .success-title {
+     font-size: 26px;
+     font-weight: 600;
+     color: #007a8c;
+     margin-bottom: 16px;
+ }
+
+ .success-message {
+     font-size: 14px;
+     color: #666;
+     line-height: 1.6;
+     margin-bottom: 32px;
+ }
+
+ .success-buttons {
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+ }
+
+ .success-btn {
+     padding: 14px 24px;
+     border: none;
+     border-radius: 12px;
+     font-size: 16px;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .success-btn.primary {
+     background-color: #007a8c;
+     color: white;
+ }
+
+ .success-btn.primary:hover {
+     background-color: #005f6b;
+     transform: translateY(-2px);
+ }
+
+ .success-btn.secondary {
+     background-color: #b3e5fc;
+     color: #007a8c;
+ }
+
+ .success-btn.secondary:hover {
+     background-color: #80deea;
+     transform: translateY(-2px);
+ }
+
+ /* Responsive Styles for Success */
+ @media (min-width: 768px) {
+     .success-content {
+         padding: 80px 60px;
+         max-width: 420px;
+     }
+
+     .success-title {
+         font-size: 32px;
+     }
+
+     .success-buttons {
+         gap: 16px;
+     }
+
+     .success-btn {
+         padding: 16px 32px;
+         font-size: 18px;
      }
  }
