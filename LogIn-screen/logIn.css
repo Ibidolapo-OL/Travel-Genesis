@@ -1,144 +1,295 @@
-* {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      body {
-        margin: 10px;
-      }
-      /* label{
-        text-align: left;
-      } */
-      .form {
-        place-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: 90px;
-        font-family: poppins, sans-serif;
-        /* padding-bottom: 0; */
-        /* text-align: start; */
-        /* margin: 50px;
-        padding: 50px; */
-        
-      }
-      
-      h1 {
-        font-family: Poppins, sans-serif;
-        font-weight: 500;
-        font-style: Medium;
-        font-size: 36px;
-        
-        letter-spacing: 0%;
-        text-align: center;
-        /* width: 342px; */
-        /* height: 40px; */
-       
-        color: #333;
-      }
-      a {
-        text-decoration: none;
-        color: var(--color-orange-green-6-main, #007a8c);
-        margin-left: 10px;
-        font-weight: 500;
-      }
-      p {
-        font-size: 16px;
-        color: #666;
-        text-align: center;
-        font-family: Poppins, sans-serif;
-        font-weight: 400;
-        font-style: Regular;
-        font-size: 18px;
-      
-        line-height: 30px;
-        word-spacing: 5px;
-        
-        color: var(--Color-Black-Black-5, #444444);
+ * {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+ }
 
-        margin-bottom: 70px;
-      }
-      .email-input {
-        background-image: url("https://cdn-icons-png.flaticon.com/512/561/561127.png");
-        background-size: 18px;
-        background-repeat: no-repeat;
-        background-position: 10px;
-        padding: 10px 20px 10px 40px;
-        border: 1px solid #ccc;
-        border-radius: 12px;
-        font-size: 14px;
-        /* width: 200%; */
-        margin-top: 10px;
-        color: #4444;
-      }
-      .password-input {
-        /* background-image: url("https://cdn-icons-png.flaticon.com/512/3064/3064197.png"); */
-        /* background-image: url("https://cdn-icons-png.flaticon.com/512/709/709612.png"); */
-        background-image: url("https://cdn-icons-png.flaticon.com/512/565/565655.png");
-        display: flex;
-        flex-direction: row-reverse;
-        background-size: 18px;
-        background-repeat: no-repeat;
-        background-position: 10px center;
-        padding: 10px 20px 10px 40px;
-        border: 1px solid #ccc;
-        border-radius: 12px;
-        font-size: 14px;
-        /* width: 200%; */
-        margin: 10px 0px 50px;
-      }
-      .btn {
-        justify-content: center;
-        align-items: center;
-        place-items: center;
-        text-align: center;
-      }
-      button {
-        background: var(--color-orange-green-6-main, #007a8c);
-        color: white;
-        width: 339px;
-        height: 40px;
+ body {
+   font-family: 'Poppins', sans-serif;
+   background-color: #f0f2f5;
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+ }
 
-        opacity: 1;
-        top: 741px;
-        left: 26px;
-        padding-top: 8px;
-        padding-right: 12px;
-        padding-bottom: 8px;
-        padding-left: 12px;
-        gap: 4;
-        border-radius: 12px;
-        border: none;
-      }
-      form{
-        display: flex;
-        flex-direction: column;
-        line-height: 0;
-      }
-      @media(max-width: 600px){
-        body{
-          justify-content: left;
-          text-align: left;
-          margin: 20px;
-        }
-        h1{
-          text-align: left;
-        }
-        p{
-          text-align: left;
-        }
-        .form{
-          place-items: start;
-        }
-        .email-input{
-          width: 200%;
-        }
-        .password-input{
-          width: 200%;
-        }
-        .btn{
-          text-align: center;
-        }
-        .sign-in{
-          text-align: center;
-        }
-      }
+ @media (max-width: 480px) {
+   body {
+     padding: 0;
+     background-color: #fff;
+   }
+ }
+
+ .container {
+   background-color: #fff;
+   width: 100%;
+   max-width: 500px;
+   padding: 40px 30px;
+   border-radius: 12px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ @media (max-width: 480px) {
+   .container {
+     padding: 24px 20px;
+     border-radius: 0;
+     box-shadow: none;
+     min-height: 100vh;
+     max-width: 100%;
+   }
+ }
+
+ h1 {
+   font-size: 28px;
+   color: #333;
+   margin-bottom: 10px;
+   font-weight: 600;
+ }
+
+ @media (max-width: 480px) {
+   h1 {
+     font-size: 24px;
+   }
+ }
+
+ .subtitle {
+   font-size: 14px;
+   color: #666;
+   line-height: 1.5;
+   margin-bottom: 30px;
+ }
+
+ .form-group {
+   margin-bottom: 20px;
+ }
+
+ label {
+   display: block;
+   font-size: 14px;
+   font-weight: 500;
+   color: #444;
+   margin-bottom: 8px;
+ }
+
+ .input-wrapper {
+   position: relative;
+   width: 100%;
+ }
+
+ input {
+   width: 100%;
+   padding: 14px;
+   border: 1px solid #eee;
+   background-color: #f9f9f9;
+   border-radius: 12px;
+   font-size: 14px;
+   outline: none;
+   transition: 0.3s;
+   font-family: 'Poppins', sans-serif;
+ }
+
+ @media (max-width: 480px) {
+   input {
+     padding: 16px 14px;
+     font-size: 16px;
+   }
+ }
+
+ input:focus {
+   border-color: #8edeb8;
+   background-color: #fff;
+ }
+
+ input::placeholder {
+   color: #aaa;
+ }
+
+ .input-wrapper.icon-input-email input {
+   padding-left: 45px;
+ }
+
+ .input-wrapper.icon-input-password input {
+   padding: 14px 45px 14px 45px;
+ }
+
+ @media (max-width: 480px) {
+   .input-wrapper.icon-input-email input {
+     padding-left: 48px;
+   }
+
+   .input-wrapper.icon-input-password input {
+     padding: 16px 48px 16px 48px;
+   }
+ }
+
+ .input-icon {
+   position: absolute;
+   left: 15px;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 18px;
+   height: 18px;
+   opacity: 0.6;
+   pointer-events: none;
+ }
+
+ .email-icon {
+   background: url("https://cdn-icons-png.flaticon.com/512/561/561127.png") no-repeat center;
+   background-size: contain;
+ }
+
+ .password-icon {
+   background: url("https://cdn-icons-png.flaticon.com/512/565/565655.png") no-repeat center;
+   background-size: contain;
+ }
+
+ #eyeicon {
+   height: auto;
+   width: 24px;
+   right: 14px;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   cursor: pointer;
+ }
+
+ .error-border {
+   border-color: red !important;
+ }
+
+ .sign-up-text {
+   text-align: center;
+   font-size: 13px;
+   color: #666;
+   margin: 25px 0;
+ }
+
+ .sign-up-text a {
+   color: #007A8C;
+   text-decoration: none;
+   font-weight: 600;
+ }
+
+ .sign-up-text a:hover {
+   text-decoration: underline;
+ }
+
+ .divider {
+   border: none;
+   border-top: 1px solid #e0e0e0;
+   margin: 24px 0;
+ }
+
+ button {
+   width: 100%;
+   padding: 16px;
+   background-color: #007A8C;
+   color: #fff;
+   border: none;
+   border-radius: 12px;
+   font-size: 16px;
+   cursor: pointer;
+   transition: 0.3s ease;
+   font-weight: 600;
+   font-family: 'Poppins', sans-serif;
+ }
+
+ @media (max-width: 480px) {
+   button {
+     padding: 18px;
+     font-size: 17px;
+   }
+ }
+
+ button:hover {
+   background-color: #245d65;
+ }
+
+ button:active {
+   transform: scale(0.98);
+ }
+
+ .home-indicator {
+   display: none;
+ }
+
+ @media (max-width: 480px) {
+   .home-indicator {
+     display: block;
+     width: 134px;
+     height: 5px;
+     background-color: rgba(0, 0, 0, 0.3);
+     border-radius: 100px;
+     margin: 20px auto 0;
+   }
+ }
+
+ /* Tablet styles */
+ @media (min-width: 600px) and (max-width: 1023px) {
+   .container {
+     max-width: 550px;
+     padding: 50px 40px;
+   }
+
+   h1 {
+     font-size: 32px;
+   }
+
+   .subtitle {
+     font-size: 15px;
+     margin-bottom: 35px;
+   }
+ }
+
+ /* Desktop/Laptop styles */
+ @media (min-width: 1024px) {
+   .container {
+     max-width: 600px;
+     padding: 60px 50px;
+   }
+
+   h1 {
+     font-size: 36px;
+     margin-bottom: 12px;
+   }
+
+   .subtitle {
+     font-size: 16px;
+     margin-bottom: 40px;
+   }
+
+   .form-group {
+     margin-bottom: 24px;
+   }
+
+   input {
+     padding: 16px 14px;
+     font-size: 15px;
+   }
+
+   .input-wrapper.icon-input-email input {
+     padding-left: 50px;
+   }
+
+   .input-wrapper.icon-input-password input {
+     padding: 16px 50px 16px 50px;
+   }
+
+   button {
+     padding: 18px;
+     font-size: 17px;
+   }
+ }
+
+ /* Large desktop */
+ @media (min-width: 1440px) {
+   body {
+     padding: 40px;
+   }
+
+   .container {
+     max-width: 650px;
+     padding: 70px 60px;
+   }
+ }
