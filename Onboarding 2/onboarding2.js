@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       window.location.href = "../Signup Screen/signup.html";
 
-      alert("Proceeding to the next screen (Sign Up).");
+      // alert("Proceeding to the next screen (Sign Up).");
     });
   } else {
     console.error('Error:Button with ID "getStartedBtn" not found.');
