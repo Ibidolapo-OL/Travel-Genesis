@@ -94,3 +94,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// when the sigin is been clicked
+document.addEventListener("DOMContentLoaded", function () {
+  const sigIn = document.getElementById("sign-in");
+  if (sigIn) {
+    sigIn.addEventListener("click", function () {
+      console.log("Get Started button clicked! Navigating to Sign In page...");
+
+      window.location.href = "../LogIn-screen/logIn.html";
+
+      // alert("Proceeding to the next screen (Sign login).");
+    });
+  } else {
+    console.error('Error:Button with ID "signIn " not found.');
+  }
+});
