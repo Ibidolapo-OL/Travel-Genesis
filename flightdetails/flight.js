@@ -11,18 +11,15 @@ function selectFlight(element) {
 function continueFlight() {
   const selectedFlight = document.querySelector(".flight-card.selected");
   if (selectedFlight) {
-    // alert("Flight selected! Proceeding to booking...");
-    // Add your navigation logic here
     window.location.href =
-      // "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
+      "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
   } else {
     alert("Please select a flight first!");
   }
 }
 
 function goBack() {
-  window.history.back();
-  // Or: window.location.href = 'home.html';
+  window.location.href = "../Home-screen/home.html";
 }
 
 // Add fade-in animation on page load
