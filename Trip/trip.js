@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       item.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.href = "../settings/settings.html";
+        window.location.href = "../Profile/profile.html";
       });
     }
   });

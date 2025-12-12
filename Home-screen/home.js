@@ -121,3 +121,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// for the Profile navigation click
+document.addEventListener("DOMContentLoaded", () => {
+  const navItems = document.querySelectorAll(".bottom-nav .nav-item");
+  if (navItems.length > 0) {
+    // Find nav item by visible label text to avoid index issues
+    navItems.forEach((item) => {
+      const label = (item.textContent || "").trim().toLowerCase();
+      if (label === "profile" || label.includes("profile")) {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log("Profile clicked! Navigating to profile page...");
+          window.location.href = "../Profile/profile.html";
+        });
+      }
+    });
+  }
+});
