@@ -40,3 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// for the book button when it is clicked
+document.addEventListener("DOMContentLoaded", () => {
+  const bookbtns = document.querySelectorAll(".book-btn");
+  if (bookbtns.length > 0) {
+    bookbtns.forEach(bookbtn => {
+      bookbtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.log("Book button clicked! Navigating to flight details page...");
+        window.location.href = "../flightdetails/flight.html";
+      });
+    });
+  }
+});
