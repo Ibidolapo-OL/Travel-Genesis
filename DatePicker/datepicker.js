@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.addEventListener("click", () => {
       if (selectedDate) {
         console.log("Proceeding with date: " + selectedDate);
-        // Navigate to next page (update this path as needed)
+        // Navigate to next page
         window.location.href = "../SEAT/seat.html";
       } else {
         alert("Please select a date first");

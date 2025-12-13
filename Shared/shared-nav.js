@@ -1,6 +1,4 @@
-// =========================================================
 // SHARED NAVIGATION COMPONENT FOR BEZAO TRAVEL APP
-// =========================================================
 
 // Function to create the shared navigation HTML
 function createSharedNavigation() {

@@ -8,3 +8,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+//above is function to return to home

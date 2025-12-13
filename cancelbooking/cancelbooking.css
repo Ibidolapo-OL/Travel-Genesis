@@ -6,7 +6,6 @@
 
  body {
      font-family: sans-serif;
-     /* background-color: whitesmoke; */
      height: 100vh;
      display: flex;
      align-items: center;
@@ -87,10 +86,10 @@
      transform: scale(0.98);
  }
 
- /* ============================================
+ /* ==========
            TABLET - iPad (768px and up)
            Remove border radius
-           ============================================ */
+           ======================= */
  @media (min-width: 768px) {
      .dialog-container {
          border-radius: 0;
@@ -109,10 +108,10 @@
      }
  }
 
- /* ============================================
+ /* ===========
            DESKTOP - 1024px and up
            No border radius, larger size
-           ============================================ */
+           ========================= */
  @media (min-width: 1024px) {
      .dialog-container {
          border-radius: 0;
@@ -133,7 +132,7 @@
      }
  }
 
- /* ============================================
+ /* ============
            LARGE DESKTOP - 1440px and up
            No border radius, maximum size
            ============================================ */
@@ -155,7 +154,7 @@
      }
  }
 
- /* ============================================
+ /* =============
            MOBILE - Keep border radius (below 768px)
            ============================================ */
  @media (max-width: 767px) {

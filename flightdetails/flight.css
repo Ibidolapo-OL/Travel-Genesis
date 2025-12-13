@@ -79,7 +79,6 @@
      }
  }
 
- /* Route Card (Top) */
  .route-card {
      background: linear-gradient(135deg, #7ab5ba 0%, #6ba5aa 100%);
      border-radius: 16px;
@@ -147,7 +146,6 @@
      transform: rotate(90deg);
  }
 
- /* Flight Cards */
  .flights-list {
      flex: 1;
      overflow-y: auto;
@@ -170,7 +168,6 @@
  }
 
  .flight-card.selected {
-     /* border-color: #cfbff0; */
      background: #6ba5aa;
  }
 
@@ -242,7 +239,6 @@
      color: #2c5356;
  }
 
- /* Continue Button */
  .continue-btn {
      width: 100%;
      padding: 18px;
@@ -295,7 +291,6 @@
      }
  }
 
- /* Scrollbar styling */
  .flights-list::-webkit-scrollbar {
      width: 6px;
  }
