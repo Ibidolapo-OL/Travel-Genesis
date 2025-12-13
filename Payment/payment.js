@@ -43,10 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 
-  // Handle View Tickets button
   if (viewTicketsBtn) {
     viewTicketsBtn.addEventListener("click", () => {
-      // Navigate to e-ticket page
       window.location.href = "../E-ticket/e_tickect.html";
     });
   }
@@ -54,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle Back to Home button
   if (backHomeBtn) {
     backHomeBtn.addEventListener("click", () => {
-      // Navigate to home page
       window.location.href = "../Home-screen/home.html";
     });
   }

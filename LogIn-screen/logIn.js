@@ -50,9 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (isValid) {
-        // Success - you can redirect or process login here
-        // alert("Login successful! Redirecting...");
-        // Example redirect:
         window.location.href =
           "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
         console.log("Login attempt:", {
@@ -78,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       console.log("Sign up link clicked! Navigating to Sign Up page...");
       window.location.href = "../Signup Screen/signup.html";
-      //   alert("Proceeding to Sign Up page.");
     });
   }
 });

@@ -5,7 +5,7 @@
   }
 
   body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -167,9 +167,9 @@
       margin: 25px auto;
   }
 
-  /* ============================================
+  /* =======
            TABLET - Medium screens (600px - 1023px)
-           ============================================ */
+           ========================== */
   @media (min-width: 600px) {
       body {
           padding: 30px;
@@ -179,7 +179,6 @@
           max-width: 600px;
           min-height: auto;
           border-radius: 20px;
-          /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); */
           background: none;
       }
 
@@ -253,7 +252,6 @@
       .container {
           max-width: 750px;
           border-radius: 25px;
-          /* box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25); */
       }
 
       .header {
@@ -419,7 +417,7 @@
       }
   }
 
-  /* ============================================
+  /* ====
            iPAD PRO 12.9" - 1024px x 1366px
            ============================================ */
   @media (min-width: 1024px) and (max-width: 1194px) {
@@ -449,7 +447,7 @@
       }
   }
 
-  /* ============================================
+  /* ========
            MacBook Air 13" - 1280px x 800px
            ============================================ */
   @media (min-width: 1195px) and (max-width: 1365px) {
@@ -495,7 +493,7 @@
       }
   }
 
-  /* ============================================
+  /* ========
            MacBook Pro 14" - 1512px x 982px
            ============================================ */
   @media (min-width: 1366px) and (max-width: 1599px) {
@@ -599,7 +597,7 @@
       }
   }
 
-  /* ============================================
+  /* =========
            LARGE DESKTOP - 4K and beyond (1920px+)
            ============================================ */
   @media (min-width: 1920px) {
@@ -659,7 +657,7 @@
       }
   }
 
-  /* ============================================
+  /* ========
            MOBILE - Small screens (below 600px)
            ============================================ */
   @media (max-width: 599px) {

@@ -21,7 +21,6 @@ function goBack() {
   window.location.href = "../Home-screen/home.html";
 }
 
-// Add fade-in animation on page load
 document.body.style.opacity = "0";
 setTimeout(() => {
   document.body.style.transition = "opacity 0.3s ease";

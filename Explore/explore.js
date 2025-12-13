@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navItems = document.querySelectorAll(".nav-item");
 
-  // Attach handlers by label text (same approach used in Trip)
   navItems.forEach((item) => {
     const label = (item.textContent || "").trim().toLowerCase();
 
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
       item.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        // already on explore - no navigation
       });
     }
 

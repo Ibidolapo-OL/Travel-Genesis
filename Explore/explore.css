@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: "Segoe UI", sans-serif;
     background: #f5f5f5;
     color: #333;
 }
@@ -41,12 +41,10 @@ body {
     font-weight: 400;
 }
 
-/* MAIN CONTENT */
 .main-content {
     padding: 24px 20px;
 }
 
-/* PROFILE SECTION */
 .profile-section {
     margin-bottom: 24px;
     display: flex;
@@ -104,7 +102,6 @@ body {
     font-size: 14px;
 }
 
-/* ACCESSIBILITY SECTION */
 .accessibility-section {
     margin-bottom: 28px;
     background: #fafafa;
@@ -128,7 +125,6 @@ body {
     color: #1a1a1a;
 }
 
-/* DESTINATIONS SECTION */
 .destinations-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -224,7 +220,6 @@ body {
     font-size: 24px;
 }
 
-/* Home indicator */
 .home-indicator {
     position: absolute;
     bottom: 4px;

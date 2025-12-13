@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // You can add logic here to enable notifications
       } else {
         console.log("Push notifications disabled");
-        // You can add logic here to disable notifications
       }
     });
   }
