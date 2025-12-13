@@ -140,3 +140,102 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+///////////////desktop
+
+document.addEventListener("DOMContentLoaded", function () {
+  // =====================================================
+  // DESKTOP NAVIGATION - Add this section
+  // =====================================================
+  const desktopNavLinks = document.querySelectorAll(".desktop-nav a");
+
+  desktopNavLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Remove active class from all links
+      desktopNavLinks.forEach((l) => l.classList.remove("active"));
+
+      // Add active class to clicked link
+      this.classList.add("active");
+
+      // Get the text content to determine which page to navigate to
+      const linkText = this.textContent.trim().toLowerCase();
+
+      // Navigate based on the link clicked
+      switch (linkText) {
+        case "home":
+          // Already on home page, just scroll to top
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          break;
+
+        case "my trip":
+          window.location.href = "../Trip/trip.html";
+          break;
+
+        case "explore":
+          window.location.href = "../Explore/explore.html";
+          break;
+
+        case "profile":
+          window.location.href = "../Profile/profile.html";
+          break;
+
+        default:
+          console.log("Navigation link not configured:", linkText);
+      }
+    });
+  });
+});
+
+const bottomNavLinks = document.querySelectorAll(".bottom-nav .nav-item");
+
+bottomNavLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Remove active class from all bottom nav links
+    bottomNavLinks.forEach((l) => l.classList.remove("active"));
+
+    // Add active class to clicked link
+    this.classList.add("active");
+
+    // Navigate to the appropriate page
+    const href = this.getAttribute("href");
+    if (href && href !== "#") {
+      window.location.href = href;
+    }
+  });
+});
+
+// =====================================================
+// SET ACTIVE NAVIGATION BASED ON CURRENT PAGE
+// =====================================================
+function setActiveNav() {
+  const currentPage = window.location.pathname;
+
+  // Set active for desktop nav
+  desktopNavLinks.forEach((link) => {
+    const linkText = link.textContent.trim().toLowerCase();
+
+    if (
+      (currentPage.includes("home.html") && linkText === "home") ||
+      (currentPage.includes("trip.html") && linkText === "my trip") ||
+      (currentPage.includes("explore.html") && linkText === "explore") ||
+      (currentPage.includes("profile.html") && linkText === "profile")
+    ) {
+      link.classList.add("active");
+    }
+  });
+
+  // Set active for bottom nav
+  bottomNavLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href && currentPage.includes(href.split("/").pop())) {
+      link.classList.add("active");
+    }
+  });
+}
+
+// Call on page load
+setActiveNav();
