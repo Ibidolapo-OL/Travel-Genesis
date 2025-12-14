@@ -38,3 +38,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// for the edit  date
+document.addEventListener("DOMContentLoaded", function () {
+  const editdate = document.getElementById("edit-date");
+  if (editdate) {
+    editdate.addEventListener("click", function () {
+      console.log("returning to splash page...");
+
+      window.location.href = "../DatePicker/datepicker.html";
+    });
+  }
+});
+
+//for the loaction edit
+
+document.addEventListener("DOMContentLoaded", function () {
+  const editloaction = document.getElementById("edit-loacation");
+  if (editloaction) {
+    editloaction.addEventListener("click", function () {
+      console.log("returning to splash page...");
+
+      window.location.href = "../flightdetails/flight.html";
+    });
+  }
+});
+
+//for the seat edit
+
+document.addEventListener("DOMContentLoaded", function () {
+  const editseat = document.getElementById("edit-seat");
+  if (editseat) {
+    editseat.addEventListener("click", function () {
+      console.log("returning to splash page...");
+
+      window.location.href = "../SEAT/seat.html";
+    });
+  }
+});
