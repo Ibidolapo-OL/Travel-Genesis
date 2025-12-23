@@ -1,8 +1,38 @@
-// Wait for DOM to be fully loaded
+// =====================================================
+// USER GREETING
+// =====================================================
+document.addEventListener("DOMContentLoaded", function () {
+  const greetingsElement = document.getElementById("greetings");
+
+  if (greetingsElement) {
+    const userName = localStorage.getItem("userName");
+    const currentHour = new Date().getHours();
+    let timeGreeting = "Hi";
+
+    // if (currentHour < 12) {
+    //   timeGreeting = "Good morning";
+    // } else if (currentHour < 18) {
+    //   timeGreeting = "Good afternoon";
+    // } else {
+    //   timeGreeting = "Good evening";
+    // }
+
+    if (userName) {
+      greetingsElement.textContent = `${timeGreeting}, ${userName}`;
+    } else {
+      greetingsElement.textContent = `${timeGreeting}, Traveler`;
+    }
+
+    console.log("Greeting set:", greetingsElement.textContent);
+  }
+});
+
+// =====================================================
+// SEARCH BUTTON NAVIGATION
+// =====================================================
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Script loaded!");
 
-  // Get the search button element
   const searchBtn = document.getElementById("search-btn");
 
   if (searchBtn) {
@@ -10,16 +40,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      // Prevent any default behavior
       console.log("Search button clicked! Navigating to search page...");
-
-      // Navigate to the search results page
       window.location.href = "../Search screen/search.html";
     });
   }
 });
 
-// Debug: click logger to help identify accidental targets (capture phase)
+// =====================================================
+// DEBUG CLICK LOGGER
+// =====================================================
 (function addClickLogger() {
   if (window.__clickLoggerAdded) return;
   document.addEventListener(
@@ -53,12 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
   window.__clickLoggerAdded = true;
 })();
 
-// for the notification click
-
+// =====================================================
+// NOTIFICATION BUTTON
+// =====================================================
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Script loaded!");
 
-  // Get the search button element
   const notificationBtn = document.getElementById("notification-btn");
 
   if (notificationBtn) {
@@ -66,16 +95,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     notificationBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      // Prevent any default behavior
       console.log("notification button clicked! Navigating to search page...");
-
-      // Navigate to the search results page
       window.location.href = "../notification/notification.html";
     });
   }
 });
 
-// for the book button when it is clicked
+// =====================================================
+// BOOK BUTTON
+// =====================================================
 document.addEventListener("DOMContentLoaded", () => {
   const bookbtns = document.querySelectorAll(".book-btn");
   if (bookbtns.length > 0) {
@@ -91,7 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// for the My Trip navigation click
+// =====================================================
+// MY TRIP NAVIGATION
+// =====================================================
 document.addEventListener("DOMContentLoaded", () => {
   const myTripNavItem = document.querySelector(".nav-item:nth-child(2)");
   if (myTripNavItem) {
@@ -103,11 +133,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// for the Explore navigation click
+// =====================================================
+// EXPLORE NAVIGATION
+// =====================================================
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll(".bottom-nav .nav-item");
   if (navItems.length > 0) {
-    // Find nav item by visible label text to avoid index issues
     navItems.forEach((item) => {
       const label = (item.textContent || "").trim().toLowerCase();
       if (label === "explore" || label.includes("explore")) {
@@ -122,11 +153,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// for the Profile navigation click
+// =====================================================
+// PROFILE NAVIGATION
+// =====================================================
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll(".bottom-nav .nav-item");
   if (navItems.length > 0) {
-    // Find nav item by visible label text to avoid index issues
     navItems.forEach((item) => {
       const label = (item.textContent || "").trim().toLowerCase();
       if (label === "profile" || label.includes("profile")) {
@@ -141,101 +173,80 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-///////////////desktop
-
+// =====================================================
+// DESKTOP NAVIGATION
+// =====================================================
 document.addEventListener("DOMContentLoaded", function () {
-  // =====================================================
-  // DESKTOP NAVIGATION - Add this section
-  // =====================================================
   const desktopNavLinks = document.querySelectorAll(".desktop-nav a");
 
   desktopNavLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // Remove active class from all links
       desktopNavLinks.forEach((l) => l.classList.remove("active"));
-
-      // Add active class to clicked link
       this.classList.add("active");
 
-      // Get the text content to determine which page to navigate to
       const linkText = this.textContent.trim().toLowerCase();
 
-      // Navigate based on the link clicked
       switch (linkText) {
         case "home":
-          // Already on home page, just scroll to top
           window.scrollTo({ top: 0, behavior: "smooth" });
           break;
-
         case "my trip":
           window.location.href = "../Trip/trip.html";
           break;
-
         case "explore":
           window.location.href = "../Explore/explore.html";
           break;
-
         case "profile":
           window.location.href = "../Profile/profile.html";
           break;
-
         default:
           console.log("Navigation link not configured:", linkText);
       }
     });
   });
-});
 
-const bottomNavLinks = document.querySelectorAll(".bottom-nav .nav-item");
+  const bottomNavLinks = document.querySelectorAll(".bottom-nav .nav-item");
 
-bottomNavLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    // Remove active class from all bottom nav links
-    bottomNavLinks.forEach((l) => l.classList.remove("active"));
-
-    // Add active class to clicked link
-    this.classList.add("active");
-
-    // Navigate to the appropriate page
-    const href = this.getAttribute("href");
-    if (href && href !== "#") {
-      window.location.href = href;
-    }
-  });
-});
-
-// =====================================================
-// SET ACTIVE NAVIGATION BASED ON CURRENT PAGE
-// =====================================================
-function setActiveNav() {
-  const currentPage = window.location.pathname;
-
-  // Set active for desktop nav
-  desktopNavLinks.forEach((link) => {
-    const linkText = link.textContent.trim().toLowerCase();
-
-    if (
-      (currentPage.includes("home.html") && linkText === "home") ||
-      (currentPage.includes("trip.html") && linkText === "my trip") ||
-      (currentPage.includes("explore.html") && linkText === "explore") ||
-      (currentPage.includes("profile.html") && linkText === "profile")
-    ) {
-      link.classList.add("active");
-    }
-  });
-
-  // Set active for bottom nav
   bottomNavLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href && currentPage.includes(href.split("/").pop())) {
-      link.classList.add("active");
-    }
-  });
-}
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
 
-// Call on page load
-setActiveNav();
+      bottomNavLinks.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
+
+      const href = this.getAttribute("href");
+      if (href && href !== "#") {
+        window.location.href = href;
+      }
+    });
+  });
+
+  // Set active navigation based on current page
+  function setActiveNav() {
+    const currentPage = window.location.pathname;
+
+    desktopNavLinks.forEach((link) => {
+      const linkText = link.textContent.trim().toLowerCase();
+
+      if (
+        (currentPage.includes("home.html") && linkText === "home") ||
+        (currentPage.includes("trip.html") && linkText === "my trip") ||
+        (currentPage.includes("explore.html") && linkText === "explore") ||
+        (currentPage.includes("profile.html") && linkText === "profile")
+      ) {
+        link.classList.add("active");
+      }
+    });
+
+    bottomNavLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && currentPage.includes(href.split("/").pop())) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  setActiveNav();
+});

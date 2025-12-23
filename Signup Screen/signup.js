@@ -4,27 +4,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupBtn = document.querySelector("#submitBtn");
   const passwordInput = document.querySelector("#password");
   const eyeIcon = document.querySelector("#eyeicon");
-  const fullname = document.querySelector("#fullname");
-  const email = document.querySelector("#email");
+  const fullnameInput = document.querySelector("#fullname");
+  const emailInput = document.querySelector("#email");
 
+  // Password visibility toggle
   if (eyeIcon && passwordInput) {
     eyeIcon.addEventListener("click", function () {
       const currentType = passwordInput.getAttribute("type");
       if (currentType === "password") {
-        // Password is currently HIDDEN, so we're going to SHOW it
         passwordInput.setAttribute("type", "text");
-        eyeIcon.src = "./eye-open.png"; // Show OPEN eye because password is now VISIBLE
+        eyeIcon.src = "./eye-open.png";
         eyeIcon.alt = "Hide password";
       } else {
-        // Password is currently VISIBLE, so we're going to HIDE it
         passwordInput.setAttribute("type", "password");
-        eyeIcon.src = "./eye-close.png"; // Show CLOSED eye because password is now HIDDEN
+        eyeIcon.src = "./eye-close.png";
         eyeIcon.alt = "Show password";
       }
     });
   }
 
-  // Button state toggle function (check T&C)
+  // Button state toggle
   function toggleButtonState() {
     if (termsCheckbox.checked) {
       signupBtn.classList.add("is-active");
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   termsCheckbox.addEventListener("change", toggleButtonState);
 
-  // Form validation
+  // Form validation and submission
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -46,22 +45,22 @@ document.addEventListener("DOMContentLoaded", () => {
       let errorMessage = "";
 
       // Reset border colors
-      fullname.classList.remove("error-border");
-      email.classList.remove("error-border");
+      fullnameInput.classList.remove("error-border");
+      emailInput.classList.remove("error-border");
       passwordInput.classList.remove("error-border");
 
       // Check Full Name
-      if (fullname.value.trim() === "") {
+      if (fullnameInput.value.trim() === "") {
         isValid = false;
         errorMessage += "- Please enter your full name.\n";
-        fullname.classList.add("error-border");
+        fullnameInput.classList.add("error-border");
       }
 
       // Check Email
-      if (email.value.trim() === "" || !email.value.includes("@")) {
+      if (emailInput.value.trim() === "" || !emailInput.value.includes("@")) {
         isValid = false;
         errorMessage += "- Please enter a valid email address.\n";
-        email.classList.add("error-border");
+        emailInput.classList.add("error-border");
       }
 
       // Check Password
@@ -78,6 +77,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (isValid) {
+        // **STORE THE USER'S NAME AND EMAIL**
+        const fullName = fullnameInput.value.trim();
+        const firstName = fullName.split(" ")[0]; // Get first name only
+        const email = emailInput.value.trim(); // Get email
+
+        // Save to localStorage
+        localStorage.setItem("userName", firstName);
+        localStorage.setItem("userFullName", fullName);
+        localStorage.setItem("userEmail", email); // Save email
+
+        // Debug: Log to console to verify
+        console.log("Saved to localStorage:");
+        console.log("Full Name:", fullName);
+        console.log("Email:", email);
+
         // Redirect to confirmation page
         window.location.href =
           "../Accountcreationcomfirmation/Accountcreationcomfirmation.html";
@@ -88,25 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Clear error styling on input
-  [fullname, email, passwordInput].forEach((input) => {
+  [fullnameInput, emailInput, passwordInput].forEach((input) => {
     input.addEventListener("input", () => {
       input.classList.remove("error-border");
     });
   });
 });
 
-// when the sigin is been clicked
+// Sign in redirect
 document.addEventListener("DOMContentLoaded", function () {
-  const sigIn = document.getElementById("sign-in");
-  if (sigIn) {
-    sigIn.addEventListener("click", function () {
-      console.log("Get Started button clicked! Navigating to Sign In page...");
-
+  const signIn = document.getElementById("sign-in");
+  if (signIn) {
+    signIn.addEventListener("click", function () {
       window.location.href = "../LogIn-screen/logIn.html";
-
-      // alert("Proceeding to the next screen (Sign login).");
     });
-  } else {
-    console.error('Error:Button with ID "signIn " not found.');
   }
 });
