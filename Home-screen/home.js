@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function autoScrollCarousel(carousel) {
-  const scrollDuration = 10000; // 10 seconds
+  const scrollDuration = 2000; // 10 seconds
   const startPosition = carousel.scrollLeft;
   const maxScroll = carousel.scrollWidth - carousel.clientWidth;
   const distance = maxScroll - startPosition;
