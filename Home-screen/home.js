@@ -1,6 +1,5 @@
 // =====================================================
 // USER GREETING
-// =====================================================
 document.addEventListener("DOMContentLoaded", function () {
   const greetingsElement = document.getElementById("greetings");
 
@@ -26,6 +25,58 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Greeting set:", greetingsElement.textContent);
   }
 });
+
+// =====================================================
+// AUTO-SCROLL FUNCTIONALITY (10 SECONDS)
+// =====================================================
+document.addEventListener("DOMContentLoaded", function () {
+  const seeAllLinks = document.querySelectorAll(".see-all");
+
+  seeAllLinks.forEach((seeAllLink) => {
+    seeAllLink.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Find the carousel in the same section
+      const section = this.closest(".section");
+      const carousel = section.querySelector(".carousel");
+
+      if (carousel) {
+        console.log("See all clicked! Starting auto-scroll...");
+        autoScrollCarousel(carousel);
+      }
+    });
+  });
+});
+
+function autoScrollCarousel(carousel) {
+  const scrollDuration = 10000; // 10 seconds
+  const startPosition = carousel.scrollLeft;
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  const distance = maxScroll - startPosition;
+
+  const startTime = performance.now();
+
+  function animateScroll(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / scrollDuration, 1);
+
+    // Easing function for smooth animation
+    const easeProgress = easeInOutCubic(progress);
+
+    carousel.scrollLeft = startPosition + distance * easeProgress;
+
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
+  }
+
+  requestAnimationFrame(animateScroll);
+}
+
+// Smooth easing function
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
 
 // =====================================================
 // SEARCH BUTTON NAVIGATION

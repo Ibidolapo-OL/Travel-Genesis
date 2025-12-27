@@ -56,3 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const backButton = document.querySelector("#back-button");
+  if (backButton) {
+    backButton.addEventListener("click", function () {
+      console.log("Back button clicked! Navigating to bookings page...");
+      window.location.href = "../Bookingdetails/bookings.html";
+    });
+  }
+});
