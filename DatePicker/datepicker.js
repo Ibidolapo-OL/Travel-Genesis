@@ -1,41 +1,51 @@
-// Back button functionality
 document.addEventListener("DOMContentLoaded", () => {
   const backBtn = document.getElementById("back-btn");
   const nextBtn = document.getElementById("next-btn");
-  let selectedDate = null;
 
-  // Back button - navigate to previous page
+  let selectedFullDate = null;
+
+  // Back button
   if (backBtn) {
     backBtn.addEventListener("click", () => {
       window.location.href = "../flightdetails/flight.html";
     });
   }
 
-  // Handle day selection
-  const dayElements = document.querySelectorAll(".day:not(.empty)");
-  dayElements.forEach((dayElement) => {
-    dayElement.addEventListener("click", () => {
-      // Remove previous selection
-      dayElements.forEach((day) => day.classList.remove("selected"));
+  // Handle day selection (WITH month & year)
+  const calendars = document.querySelectorAll(".calendar");
 
-      // Add selection to clicked day
-      dayElement.classList.add("selected");
-      selectedDate = dayElement.textContent;
+  calendars.forEach((calendar) => {
+    const monthYear = calendar.querySelector(".month-year").textContent;
+    const days = calendar.querySelectorAll(".day:not(.empty)");
 
-      console.log("Selected date: " + selectedDate);
+    days.forEach((day) => {
+      day.addEventListener("click", () => {
+        // Remove previous selection
+        document
+          .querySelectorAll(".day")
+          .forEach((d) => d.classList.remove("selected"));
+
+        day.classList.add("selected");
+
+        selectedFullDate = `${day.textContent} ${monthYear}`;
+        console.log("Selected date:", selectedFullDate);
+      });
     });
   });
 
-  // Next button functionality
+  // Next button
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
-      if (selectedDate) {
-        console.log("Proceeding with date: " + selectedDate);
-        // Navigate to next page
-        window.location.href = "../SEAT/seat.html";
-      } else {
+      if (!selectedFullDate) {
         alert("Please select a date first");
+        return;
       }
+
+      // SAVE DATE
+      localStorage.setItem("bookingDate", selectedFullDate);
+
+      // GO TO SEAT PAGE
+      window.location.href = "../SEAT/seat.html";
     });
   }
 });

@@ -301,3 +301,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setActiveNav();
 });
+// the code below will get the user's location and display the Nigerian state
+
+const locationText = document.getElementById("location-text");
+
+// Step 1: Get user's GPS location
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(successLocation, errorLocation);
+} else {
+  locationText.textContent = "Location not supported";
+}
+
+// Step 2: If location is successful
+function successLocation(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  getStateFromCoordinates(latitude, longitude);
+}
+
+// Step 3: If user denies location
+function errorLocation() {
+  locationText.textContent = "Location permission denied";
+}
+
+// Step 4: Call API to get Nigerian state
+function getStateFromCoordinates(lat, lon) {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const state = data.address.state;
+      const country = data.address.country;
+
+      locationText.textContent = `${state}, ${country}`;
+    })
+    .catch(() => {
+      locationText.textContent = "Unable to detect state";
+    });
+}
