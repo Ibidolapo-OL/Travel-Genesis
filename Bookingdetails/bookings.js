@@ -76,3 +76,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// to save the date selected
+document.addEventListener("DOMContentLoaded", () => {
+  const bookingDateEl = document.getElementById("booking-date");
+
+  // Get date from localStorage
+  const savedDate = localStorage.getItem("bookingDate");
+
+  if (savedDate) {
+    bookingDateEl.textContent = savedDate;
+  } else {
+    bookingDateEl.textContent = "No date selected";
+  }
+});
+//  to save the seats selected
+const bookingSeatsEl = document.getElementById("booking-seats");
+const savedSeats = JSON.parse(localStorage.getItem("bookingSeats"));
+
+if (savedSeats && savedSeats.length > 0) {
+  bookingSeatsEl.textContent = savedSeats.join(" & ");
+} else {
+  bookingSeatsEl.textContent = "No seat selected";
+}
+
+// Load total price
+const totalPriceEl = document.getElementById("total-price");
+const savedPrice = localStorage.getItem("totalPrice");
+
+if (savedPrice) {
+  totalPriceEl.textContent = `$${savedPrice}`;
+} else {
+  totalPriceEl.textContent = "$0";
+}
