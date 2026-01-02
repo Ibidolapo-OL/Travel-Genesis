@@ -25,9 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Greeting set:", greetingsElement.textContent);
   }
 });
-
 // =====================================================
-// AUTO-SCROLL FUNCTIONALITY (10 SECONDS)
+// DROPDOWN FUNCTIONALITY
 // =====================================================
 document.addEventListener("DOMContentLoaded", function () {
   const seeAllLinks = document.querySelectorAll(".see-all");
@@ -38,65 +37,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Find the carousel in the same section
       const section = this.closest(".section");
+      const carouselWrapper = section.querySelector(".carousel-wrapper");
       const carousel = section.querySelector(".carousel");
 
-      if (carousel) {
-        console.log("See all clicked! Starting auto-scroll...");
-        autoScrollCarousel(carousel);
+      if (carousel && carouselWrapper) {
+        console.log("See all clicked! Toggling dropdown...");
+        toggleDropdown(carouselWrapper, carousel, this);
       }
     });
   });
 });
 
-function autoScrollCarousel(carousel) {
-  const scrollDuration = 2000; // 10 seconds
-  const startPosition = carousel.scrollLeft;
-  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-  const distance = maxScroll - startPosition;
+function toggleDropdown(carouselWrapper, carousel, seeAllLink) {
+  const isExpanded = carouselWrapper.classList.contains("expanded");
 
-  const startTime = performance.now();
+  if (isExpanded) {
+    // Collapse
+    carouselWrapper.classList.remove("expanded");
+    carousel.style.maxHeight = "300px"; // Original height
+    carousel.style.overflowY = "hidden";
+    carousel.style.display = "flex"; // Back to horizontal scroll
+    carousel.style.flexWrap = "nowrap";
+    seeAllLink.innerHTML =
+      'See all <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.79175 10.2083L8.60425 6.99996L3.79175 3.79163L4.37508 2.91663L10.5001 6.99996L4.37508 11.0833L3.79175 10.2083Z" fill="#007A8C" /></svg>';
+  } else {
+    // Expand - Show as 2 column grid
+    carouselWrapper.classList.add("expanded");
 
-  function animateScroll(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / scrollDuration, 1);
+    // Change to grid layout with 2 columns
+    carousel.style.display = "grid";
+    carousel.style.gridTemplateColumns = "repeat(2, 1fr)";
+    carousel.style.gap = "12px";
 
-    // Easing function for smooth animation
-    const easeProgress = easeInOutCubic(progress);
+    // Calculate the full height needed
+    const scrollHeight = carousel.scrollHeight;
+    carousel.style.maxHeight = "none";
+    carousel.style.overflowY = "visible";
 
-    carousel.scrollLeft = startPosition + distance * easeProgress;
+    // Change text to "See less" with upward arrow
+    seeAllLink.innerHTML =
+      'See less <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-90deg);"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.79175 10.2083L8.60425 6.99996L3.79175 3.79163L4.37508 2.91663L10.5001 6.99996L4.37508 11.0833L3.79175 10.2083Z" fill="#007A8C" /></svg>';
 
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    }
+    // Smooth scroll into view
+    setTimeout(() => {
+      carouselWrapper.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 100);
   }
-
-  requestAnimationFrame(animateScroll);
 }
-
-// Smooth easing function
-function easeInOutCubic(t) {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
-// =====================================================
-// SEARCH BUTTON NAVIGATION
-// =====================================================
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script loaded!");
-
-  const searchBtn = document.getElementById("search-btn");
-
-  if (searchBtn) {
-    console.log("Search button found!");
-
-    searchBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      console.log("Search button clicked! Navigating to search page...");
-      window.location.href = "../Search screen/search.html";
-    });
-  }
-});
-
 // =====================================================
 // DEBUG CLICK LOGGER
 // =====================================================
