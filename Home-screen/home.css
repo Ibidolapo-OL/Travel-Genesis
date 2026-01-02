@@ -289,34 +289,35 @@
      padding: 20px 0 16px;
    }
 
+   /* Remove the old expanded styles and add this instead */
    .carousel-wrapper {
-     background: transparent;
-     padding: 0;
+     transition: all 0.3s ease;
    }
 
    .carousel {
-     display: grid;
-     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-     gap: 24px;
-     overflow-x: visible;
-     padding: 0;
+     display: flex;
+     gap: 12px;
+     overflow-x: auto;
+     scroll-behavior: smooth;
+     -webkit-overflow-scrolling: touch;
+     scrollbar-width: none;
+     padding: 0 20px;
+     max-height: 300px;
+     transition: all 0.5s ease;
    }
 
-   .destination-card {
-     min-width: auto;
-     max-width: none;
+   /* When expanded - 2 columns */
+   .carousel-wrapper.expanded .carousel {
+     display: grid !important;
+     grid-template-columns: repeat(2, 1fr) !important;
+     gap: 12px !important;
+     max-height: none !important;
+     overflow-y: visible !important;
+     padding: 0 20px 20px !important;
    }
 
-   .card-image-wrapper {
-     height: 200px;
+   /* Make cards full width in expanded mode */
+   .carousel-wrapper.expanded .destination-card {
+     min-width: 100%;
+     max-width: 100%;
    }
-
-   .destination-card:hover {
-     transform: translateY(-4px);
-     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-   }
-
-   .book-btn:hover {
-     background: #007a8c;
-   }
- }
